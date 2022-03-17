@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import BarChart from './components/BarChart';
+import NestedTreemap from './components/NestedTreemap';
 
 const data = [
   {year: 1980, efficiency: 24.3, sales: 8949000},
@@ -38,7 +39,8 @@ const data = [
 function App() {
   return (
     <div className="App">
-      <BarChart data={data} />
+      {/* <BarChart data={data} /> */}
+      <NestedTreemap />
     </div>
   );
 }
