@@ -7,15 +7,29 @@
     <title>🌍 World Economy Post Covid-19</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.4/dist/css/uikit.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link href="./assets/css/treemap.css" rel="stylesheet" />
     <style></style>
   </head>
   <body>
-    <nav>
-      <div class="up">&larr; UP</div>
-    </nav>
-    <div class="feature" id="chart"></div>
+    <div class="slider-container">
+      <input class="uk-range" type="range">
+      <div class="slider-labels">
+        <div>2019</div>
+        <div>2020</div>
+        <div>2021</div>
+        <div>2022</div>
+      </div>
+    </div>
+    <div class="treemap-container">
+      <nav>
+        <div class="up">&larr; UP</div>
+      </nav>
+      <div class="feature" id="chart"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.4/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.4/dist/js/uikit-icons.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script type="text/javascript" src="./data/debt_2019.json"></script>
     <script type="text/javascript" src="./assets/javascript/treemap.js"></script>

@@ -1,4 +1,4 @@
-var data = {
+[{
     "name": "debt",
     "children": [
         {
@@ -1202,4 +1202,4 @@ var data = {
             ]
         }
     ]
-};
+}]
