@@ -330,7 +330,7 @@ const update = (year) => {
         })
         .style("text-align", "center")
         .style("font-family", "Montserrat")
-        .style("font-size", "11px")
+        .style("font-size", "18px")
         .data([data])
       //.style("opacity", function(d) { return isOverflowed( d.parent ) ? 1 : 0; });
 
@@ -340,6 +340,11 @@ const update = (year) => {
         // http://jsfiddle.net/ramnathv/amszcymq/
 
         console.log("clicked: " + d.data.name + ", depth: " + d.depth);
+
+        // enlarge size with zoom
+        if (d.depth >= 1) {
+          d3.selectAll(".label").style("font-size", `${d.depth * 15}px`);
+        }
 
         currentDepth = d.depth;
         parent.datum(d.parent || nodes);
@@ -382,6 +387,7 @@ const update = (year) => {
 };
 
 const onChange = function (evt) {
+  d3.select("#chart").selectAll(".node").remove();
   let val = evt.target.value;
   if (val >= 0 && val <= 25) {
     update(2019);
