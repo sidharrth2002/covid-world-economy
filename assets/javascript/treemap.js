@@ -262,7 +262,13 @@ let width = (height = 100), // % of the parent element
 
 const update = (year) => {
   console.log(`../../data/debt_${year}.json`);
-  fetch(`../../data/debt_${year}.json`)
+  let fetchLoc = "";
+  if (window.location.href.includes("covid-world")) {
+    fetchLoc = `https://mathsforgeeks.org/covid-world-economy/data/debt_${year}.json`;
+  } else {
+    fetchLoc = `../../data/debt_${year}.json`;
+  }
+  fetch(fetchLoc)
     .then((d) => d.json())
     .then((data) => {
       data = data[0];
