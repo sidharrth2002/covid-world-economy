@@ -95,6 +95,23 @@ nav .up:hover {
   transition: color .4s, opacity .8s, filter .8s;
 }
 
+.bottom-node {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .node.hide {
   opacity: 0;
   pointer-events: none;

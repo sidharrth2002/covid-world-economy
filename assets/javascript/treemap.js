@@ -1,3 +1,6 @@
+// Sidharrth Nagappan
+// 2022
+
 let width = (height = 100), // % of the parent element
   x = d3.scaleLinear().domain([0, width]).range([0, width]),
   y = d3.scaleLinear().domain([0, height]).range([0, height]),
@@ -319,19 +322,24 @@ const update = (year) => {
         .on("click", zoom)
         .append("p")
         .attr("class", "label")
-        .text(function (d) {
+        .html(function (d) {
           let value;
           if (Object.hasOwn(d.data, "children")) {
             value = d.data.children.reduce((acc, cur) => acc + cur.value, 0);
           } else {
             value = d.data.value;
           }
-          return d.data.name ? d.data.name + " \n $" + value : "---";
+
+          return d.data.name
+            ? d.data.name + " \n $" + `<span>${numberWithCommas(value)}</span>`
+            : "---";
         })
         .style("text-align", "center")
         .style("font-family", "Montserrat")
         .style("font-size", "18px")
-        .data([data])
+        .data([data]);
+
+      // runAnimations()
       //.style("opacity", function(d) { return isOverflowed( d.parent ) ? 1 : 0; });
 
       let parent = d3.select(".up").datum(nodes).on("click", zoom);
@@ -341,11 +349,27 @@ const update = (year) => {
 
         console.log("clicked: " + d.data.name + ", depth: " + d.depth);
 
-        // enlarge size with zoom
-        if (d.depth >= 1) {
-          d3.selectAll(".label").style("font-size", `${d.depth * 15}px`);
-        }
+        if (d.depth === 2 && d3.select(".inner").empty()) {
+          console.log("here");
 
+          d3.selectAll(".label").style("display", "none");
+          d3.selectAll(".node.level-2")
+            .append("div")
+            .attr("class", "inner")
+            .append("p")
+            .attr("class", "countUp")
+            .html(function (d) {
+              // countUp.start()
+              return `${d.data.name} owes <b>$<span class="countup">${d.data.value}</span></b> to ${d.parent.data.name} in ${year}.`;
+            });
+          // countUp.start();
+
+          runAnimations();
+        } else if (d.depth < 2) {
+          d3.selectAll(".inner").remove();
+          d3.selectAll(".label").style("display", "block");
+        }
+        // enlarge size with zoom
         currentDepth = d.depth;
         parent.datum(d.parent || nodes);
 
@@ -404,3 +428,48 @@ var input = document.querySelector(".uk-range");
 input.addEventListener("input", onChange, false);
 
 update(2019);
+
+// How long you want the animation to take, in ms
+const animationDuration = 1000;
+// Calculate how long each ‘frame’ should last if we want to update the animation 60 times per second
+const frameDuration = 1000 / 60;
+// Use that to calculate how many frames we need to complete the animation
+const totalFrames = Math.round(animationDuration / frameDuration);
+// An ease-out function that slows the count as it progresses
+const easeOutQuad = (t) => t * (2 - t);
+
+// The animation function, which takes an Element
+const animateCountUp = (el) => {
+  let frame = 0;
+  const countTo = parseInt(el.innerHTML, 10);
+  // Start the animation running 60 times per second
+  const counter = setInterval(() => {
+    frame++;
+    // Calculate our progress as a value between 0 and 1
+    // Pass that value to our easing function to get our
+    // progress on a curve
+    const progress = easeOutQuad(frame / totalFrames);
+    // Use the progress value to calculate the current count
+    const currentCount = Math.round(countTo * progress);
+
+    // If the current count has changed, update the element
+    if (parseInt(el.innerHTML, 10) !== currentCount) {
+      el.innerHTML = currentCount;
+    }
+
+    // If we’ve reached our last frame, stop the animation
+    if (frame === totalFrames) {
+      clearInterval(counter);
+    }
+  }, frameDuration);
+};
+
+// Run the animation on all elements with a class of ‘countup’
+const runAnimations = () => {
+  const countupEls = document.querySelectorAll(".countup");
+  countupEls.forEach(animateCountUp);
+};
+
+function numberWithCommas(n) {
+  return n.toString().replace(/\B(?!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+}
