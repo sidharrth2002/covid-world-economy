@@ -1,41 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🌍 World Economy Post Covid-19</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.4/dist/css/uikit.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link href="./assets/css/treemap.css" rel="stylesheet" />
-    <style></style>
-  </head>
-  <body>
 
-    <h1 class="uk-heading-medium">
-      The International Debt Distribution
-    </h1>
-    <div class="slider-container">
-      <input class="uk-range" value="0" type="range">
-      <div class="slider-labels">
-        <div>2019</div>
-        <div>2020</div>
-        <div>2021</div>
-        <div>2022</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌍 World Economy Post Covid-19</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="bower_components/Morphext/dist/morphext.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css"
+    integrity="sha512-4rPgyv5iG0PZw8E+oRdfN/Gq+yilzt9rQ8Yci2jJ15rAyBmF0HBE4wFjBkoB72cxBeg63uobaj1UcNt/scV93w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.4/dist/css/uikit.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <link href="./assets/css/treemap.css" rel="stylesheet" />
+  <style></style>
+</head>
+
+<body>
+  <div id="fullpage">
+    <div class="section active" id="section0">
+      <div class="section-div black-text">
+        <h1 class="uk-text-center">
+          In March 2020, the 🌎 turned upside down for good. But how did
+          these astronomical changes impact the world economy?
+        </h1>
+        <h3>Scroll</h3>
       </div>
     </div>
-    <div class="treemap-container">
-      <nav>
-        <div class="up">&larr; UP</div>
-      </nav>
-      <div class="feature" id="chart"></div>
+    <div class="section" id="section1">
+      <div class="section-div white-text">
+        <h1 class="uk-text-center">
+          We take a macro-economic journey from 2019 all the way to 2022. Brace for impact!
+        </h1>
+      </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.4/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.4/dist/js/uikit-icons.min.js"></script>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script type="text/javascript" src="./data/debt_2019.json"></script>
-    <script type="text/javascript" src="./assets/javascript/treemap.js"></script>
-  </body>
+    <div class="section" id="section2">
+      <div class="section-div white-text">
+        <h2>The world bank reported that low-income country debt has risen to $860 billion in 2020.</h3>
+          <h2>Indebtedness outpaced Gross National Income. But who owes who 💸 and who is still liquid in 2022?</h3>
+      </div>
+    </div>
+    <div class="section white-text" id="section3">
+      <div class="section3-inner">
+        <h1 class="white">
+          The International Debt Distribution
+        </h1>
+        <div class="slider-container">
+          <input class="uk-range" value="0" type="range">
+          <div class="slider-labels">
+            <div>2019</div>
+            <div>2020</div>
+            <div>2021</div>
+            <div>2022</div>
+          </div>
+        </div>
+        <div class="treemap-container">
+          <nav>
+            <div class="up">&larr; UP</div>
+          </nav>
+          <div class="feature" id="chart"></div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section3">
+      <h1>Just the simplest demo ever</h1>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/vendors/easings.min.js"
+    integrity="sha512-SrKslwu6IjHEo/8mAOtkoUOT3MzHCEOFWktrC8BNtjPuBBYLYjg1y/Marat34uYfOfxDMLEwy8DLArWEVc2i+w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"
+    integrity="sha512-gSf3NCgs6wWEdztl1e6vUqtRP884ONnCNzCpomdoQ0xXsk06lrxJsR7jX5yM/qAGkPGsps+4bLV5IEjhOZX+gg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.4/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.4/dist/js/uikit-icons.min.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://unpkg.com/typeit@8.3.3/dist/index.umd.js"></script>
+  <script>
+    var myFullpage = new fullpage("#fullpage", {
+      sectionsColor: ['#f2f2f2', '#041C32', '#041C32', '#041C32', 'whitesmoke', '#ccddff']
+    });
+    new TypeIt("#section0", {
+      strings: "This is my string!",
+      speed: 20,
+    }).go();
+  </script>
+  <script type="text/javascript" src="./data/debt_2019.json"></script>
+  <script type="text/javascript" src="./assets/javascript/treemap.js"></script>
+</body>
+
 </html>
