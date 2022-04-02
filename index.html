@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.4/dist/css/uikit.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
   <link href="./assets/css/treemap.css" rel="stylesheet" />
+  <link href="./assets/css/globe.css" rel="stylesheet" />
   <style></style>
 </head>
 
@@ -38,19 +39,25 @@
       </div>
     </div>
     <div class="section" id="section2">
+      <div class="globe-div white-text">
+        <h2 id="current"></h2>
+        <canvas id="globe"></canvas>
+      </div>
+    </div>
+    <div class="section" id="section3">
       <div class="section-div white-text">
         <h1 class="uk-text-center">
           We take a macro-economic journey from 2019 all the way to 2022. Brace for impact!
         </h1>
       </div>
     </div>
-    <div class="section" id="section3">
+    <div class="section" id="section4">
       <div class="section-div white-text">
         <h2>The world bank reported that low-income country debt has risen to $860 billion in 2020.</h3>
           <h2>Indebtedness outpaced Gross National Income. But who owes who 💸 and who is still liquid in 2022?</h3>
       </div>
     </div>
-    <div class="section white-text" id="section4">
+    <div class="section white-text" id="section5">
       <div class="section3-inner">
         <h1 class="white">
           The International Debt Distribution
@@ -91,9 +98,12 @@
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://unpkg.com/typeit@8.3.3/dist/index.umd.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/versor@0.2"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     var myFullpage = new fullpage("#fullpage", {
-      sectionsColor: ['#f2f2f2', '#041C32', '#041C32', '#041C32', 'whitesmoke', '#ccddff']
+      sectionsColor: ['#f2f2f2', '#041C32', '#041C32', '#041C32', '#041C32', '#041C32', 'whitesmoke', '#ccddff']
     });
     new TypeIt("#section0", {
       strings: "This is my string!",
@@ -103,6 +113,7 @@
   <script type="text/javascript" src="./data/debt_2019.json"></script>
   <script type="text/javascript" src="./assets/javascript/treemap.js"></script>
   <script type="text/javascript" src="./assets/javascript/covid-line.js"></script>
+  <script type="text/javascript" src="./assets/javascript/globe.js"></script>
 </body>
 
 </html>

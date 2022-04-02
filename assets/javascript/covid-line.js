@@ -107,6 +107,7 @@ d3.csv(fetchLoc)
     // Add the line
     svg
       .append("path")
+      .attr("class", "covid-line")
       .datum(data)
       .attr("fill", "none")
       .attr("stroke", "steelblue")
@@ -159,4 +160,15 @@ d3.csv(fetchLoc)
       focus.style("opacity", 0);
       focusText.style("opacity", 0);
     }
+
+    // animate line chart
+    var totalLength = d3.select(".covid-line").node().getTotalLength();
+    d3.select(".covid-line")
+        .attr("stroke-dasharray", totalLength + " " + totalLength)
+        .attr("stroke-dashoffset", totalLength)
+        // .attr("stroke-width", 3)
+        .transition()
+        .duration(1000)
+        // .attr("stroke-width", 0)
+        // .attr("stroke-dashoffset", 0);
   });

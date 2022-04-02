@@ -1,0 +1,37 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(ellipse at center,
+            #150935 0%,
+            #0b041e 50%,
+            #0a000c 100%);
+    z-index: -1;
+    height: 110vh;
+}
+
+#globe {
+    cursor: move;
+}
+
+#current {
+    color: white;
+    position: absolute;
+    top: 100;
+    font-family: sans-serif;
+    /* margin-left: 4%;
+    margin-top: 4%; */
+    top: 100;
+    left: 100;
+}
+
+.globe-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
