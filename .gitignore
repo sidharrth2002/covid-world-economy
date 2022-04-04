@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+/data/tweets/credentials.json
+
 # testing
 /coverage
 

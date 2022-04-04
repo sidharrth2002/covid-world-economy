@@ -16,24 +16,25 @@ body {
 
 #current {
     color: black;
-    /* position: absolute; */
     font-family: sans-serif;
-    /* margin-left: 4%;
-    margin-top: 4%; */
     margin-left: 200px;
+}
+
+.globe-inner {
+    padding: 1rem;
 }
 
 .globe-div {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    /* align-items: center; */
-    /* margin: 0 auto; */
-    width: 100%;
+    align-items: center;
     text-align: center;
     position: relative;
 }
 
 #country-line {
+    width: 50%;
     min-width: 800px;
+    height: 100%;
 }

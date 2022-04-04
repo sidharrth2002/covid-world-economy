@@ -8,6 +8,7 @@ function globe(globeID) {
   require(["d3"], function (d3) {
     const parseDate = d3.timeParse("%d/%m/%Y");
     const formatDate = d3.timeFormat("%b %d");
+    const formatFullDate = d3.timeFormat("%b-%m-%Y");
     const formatMonth = d3.timeFormat("%b");
 
     function drawLine(data) {
@@ -17,7 +18,7 @@ function globe(globeID) {
         .select("#country-line")
         .append("svg")
         .attr("height", 700)
-        .attr("width", 600);
+        .attr("width", 900);
       const margin = { top: 0, bottom: 10, left: 10, right: 10 };
       const chart = svg
         .append("g")
@@ -53,9 +54,10 @@ function globe(globeID) {
         //   .scaleLinear()
         //   .range([0, width])
         //   .domain(d3.extent(data, (dataPoint) => dataPoint.year));
+        console.log('Width is ' + width)
         const xScale = d3
             .scaleTime()
-            .range([margin.left, width-margin.right])
+            .range([0, width])
             .domain(d3.extent(data, (dataPoint) => dataPoint.date))
 
         return { yScale, xScale };
@@ -72,8 +74,13 @@ function globe(globeID) {
         chart
           .select(".x-axis")
           .attr("transform", `translate(0,${height})`)
-        //   .call(d3.axisBottom(xScale).ticks(20));
-          .call(d3.axisBottom(x).tickFormat(formatDate));
+          .call(d3.axisBottom(xScale).tickFormat(formatFullDate).ticks(20))
+          .selectAll("text")
+          .style("text-anchor", "end")
+          .attr("dx", "-.8em")
+          .attr("dy", ".15em")
+          .attr("transform", "rotate(-65)");
+          // .call(d3.axisBottom(x).tickFormat(formatDate));
 
         chart
           .select(".y-axis")
@@ -108,13 +115,13 @@ function globe(globeID) {
 
       updateChart(data);
       // Update chart when button is clicked
-      d3.select("button").on("click", () => {
-        // Create new fake data
-        const newData = data.map((row) => {
-          return { ...row, popularity: row.popularity * Math.random() };
-        });
-        updateChart(newData);
-      });
+      // d3.select("button").on("click", () => {
+      //   // Create new fake data
+      //   const newData = data.map((row) => {
+      //     return { ...row, popularity: row.popularity * Math.random() };
+      //   });
+      //   updateChart(newData);
+      // });
     }
 
     d3.csv(
