@@ -6,240 +6,378 @@ function globe(globeID) {
   });
 
   require(["d3"], function (d3) {
-    //
-    // Configuration
-    //
+    const parseDate = d3.timeParse("%d/%m/%Y");
+    const formatDate = d3.timeFormat("%b %d");
+    const formatMonth = d3.timeFormat("%b");
 
-    // ms to wait after dragging before auto-rotating
-    var rotationDelay = 3000;
-    // scale of the globe (not the canvas element)
-    var scaleFactor = 0.9;
-    // autorotation speed
-    var degPerSec = 6;
-    // start angles
-    var angles = { x: -20, y: 40, z: 0 };
-    // colors
-    var colorWater = "#fff";
-    var colorLand = "#111";
-    var colorGraticule = "#ccc";
-    var colorCountry = "#a00";
+    function drawLine(data) {
+      console.log(data);
+      // Create SVG and padding for the chart
+      const svg = d3
+        .select("#country-line")
+        .append("svg")
+        .attr("height", 700)
+        .attr("width", 600);
+      const margin = { top: 0, bottom: 10, left: 10, right: 10 };
+      const chart = svg
+        .append("g")
+        .attr("transform", `translate(${margin.left + 400},-400)`);
+      const width = +svg.attr("width") - margin.left - margin.right;
+      console.log("Width is " + width)
+      const height = +svg.attr("height") - margin.top - margin.bottom;
+      const grp = chart
+        .append("g")
+        .attr("transform", `translate(-${margin.left},-${margin.top})`);
 
-    //
-    // Handler
-    //
+      // Add empty scales group for the scales to be attatched to on update
+      chart.append("g").attr("class", "x-axis");
+      chart.append("g").attr("class", "y-axis");
 
-    function enter(country) {
-      var country = countryList.find(function (c) {
-        return parseInt(c.id, 10) === parseInt(country.id, 10);
+      // Add empty path
+      const path = grp
+        .append("path")
+        .attr("transform", `translate(${margin.left},0)`)
+        .attr("fill", "none")
+        .attr("stroke", "steelblue")
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-linecap", "round")
+        .attr("stroke-width", 1.5);
+
+      function updateScales(data) {
+        // Create scales
+        const yScale = d3
+          .scaleLinear()
+          .range([height, 0])
+          .domain([0, d3.max(data, (dataPoint) => dataPoint.new_cases)]);
+        // const xScale = d3
+        //   .scaleLinear()
+        //   .range([0, width])
+        //   .domain(d3.extent(data, (dataPoint) => dataPoint.year));
+        const xScale = d3
+            .scaleTime()
+            .range([margin.left, width-margin.right])
+            .domain(d3.extent(data, (dataPoint) => dataPoint.date))
+
+        return { yScale, xScale };
+      }
+
+      function createLine(xScale, yScale) {
+        return (line = d3
+          .line()
+          .x((dataPoint) => xScale(dataPoint.date))
+          .y((dataPoint) => yScale(dataPoint.new_cases)));
+      }
+
+      function updateAxes(data, chart, xScale, yScale) {
+        chart
+          .select(".x-axis")
+          .attr("transform", `translate(0,${height})`)
+        //   .call(d3.axisBottom(xScale).ticks(20));
+          .call(d3.axisBottom(x).tickFormat(formatDate));
+
+        chart
+          .select(".y-axis")
+          .attr("transform", `translate(0, 0)`)
+          .call(d3.axisLeft(yScale));
+      }
+
+      function updatePath(data, line) {
+        const updatedPath = d3
+          .select("path")
+          .interrupt()
+          .datum(data)
+          .attr("d", line);
+
+        const pathLength = updatedPath.node().getTotalLength();
+        // D3 provides lots of transition options, have a play around here:
+        // https://github.com/d3/d3-transition
+        const transitionPath = d3.transition().ease(d3.easeSin).duration(2500);
+        updatedPath
+          .attr("stroke-dashoffset", pathLength)
+          .attr("stroke-dasharray", pathLength)
+          .transition(transitionPath)
+          .attr("stroke-dashoffset", 0);
+      }
+
+      function updateChart(data) {
+        const { yScale, xScale } = updateScales(data);
+        const line = createLine(xScale, yScale);
+        updateAxes(data, chart, xScale, yScale);
+        updatePath(data, line);
+      }
+
+      updateChart(data);
+      // Update chart when button is clicked
+      d3.select("button").on("click", () => {
+        // Create new fake data
+        const newData = data.map((row) => {
+          return { ...row, popularity: row.popularity * Math.random() };
+        });
+        updateChart(newData);
       });
-      current.text((country && country.name) || "");
     }
 
-    function leave(country) {
-      current.text("");
-    }
+    d3.csv(
+      "../../data/covid/owid-covid-data.csv",
+      (data) => {
+        data.location = data.location.replace(/\s/g, "");
+        data.date = parseDate(data.date);
+        data.new_cases = +data.new_cases;
+        let newData = {
+          location: data.location,
+          date: data.date,
+          new_cases: data.new_cases,
+        };
+        return newData;
+      },
+      (error, rows) => {
+        console.log(error);
+        console.log(rows);
+        // ms to wait after dragging before auto-rotating
+        var rotationDelay = 3000;
+        // scale of the globe (not the canvas element)
+        var scaleFactor = 0.9;
+        // autorotation speed
+        var degPerSec = 6;
+        // start angles
+        var angles = { x: -20, y: 40, z: 0 };
+        // colors
+        var colorWater = "#fff";
+        var colorLand = "#111";
+        var colorGraticule = "#ccc";
+        var colorCountry = "#a00";
 
-    //
-    // Variables
-    //
+        //
+        // Handler
+        //
 
-    var current = d3.select("#current");
-    var canvas = d3.select(globeID);
-    var context = canvas.node().getContext("2d");
-    var water = { type: "Sphere" };
-    var projection = d3.geoOrthographic().precision(0.1);
-    var graticule = d3.geoGraticule10();
-    var path = d3.geoPath(projection).context(context);
-    var v0; // Mouse position in Cartesian coordinates at start of drag gesture.
-    var r0; // Projection rotation as Euler angles at start.
-    var q0; // Projection rotation as versor at start.
-    var lastTime = d3.now();
-    var degPerMs = degPerSec / 1000;
-    var globeWidth, globeHeight;
-    var land, countries;
-    var countryList;
-    var autorotate, now, diff, roation;
-    var currentCountry;
+        function enter(country) {
+          var country = countryList.find(function (c) {
+            return parseInt(c.id, 10) === parseInt(country.id, 10);
+          });
+          if (country) {
+            console.log(country);
+            countryData = rows.filter((r) => r.location === country.name);
+            d3.select("#country-line").selectAll("svg").remove();
+            drawLine(countryData);
+          }
+          current.text((country && country.name) || "");
+        }
 
-    //
-    // Functions
-    //
+        function leave(country) {
+          current.text("");
+          d3.select("#country-line").selectAll("svg").remove();
+        }
 
-    function setAngles() {
-      var rotation = projection.rotate();
-      rotation[0] = angles.y;
-      rotation[1] = angles.x;
-      rotation[2] = angles.z;
-      projection.rotate(rotation);
-    }
+        //
+        // Variables
+        //
 
-    function scale() {
-      globeWidth = document.documentElement.clientWidth;
-      globeHeight = document.documentElement.clientHeight;
-    // globeWidth = 3000;
-    // globeHeight = 3000;
-    canvas.attr("width", globeWidth).attr("height", globeHeight);
-      projection
-        .scale((scaleFactor * Math.min(globeWidth, globeHeight)) / 2)
-        .translate([globeWidth / 2, globeHeight / 2]);
-      render();
-    }
+        var current = d3.select("#current");
+        var canvas = d3.select(globeID);
+        var context = canvas.node().getContext("2d");
+        var water = { type: "Sphere" };
+        var projection = d3.geoOrthographic().precision(0.1);
+        var graticule = d3.geoGraticule10();
+        var path = d3.geoPath(projection).context(context);
+        var v0; // Mouse position in Cartesian coordinates at start of drag gesture.
+        var r0; // Projection rotation as Euler angles at start.
+        var q0; // Projection rotation as versor at start.
+        var lastTime = d3.now();
+        var degPerMs = degPerSec / 1000;
+        var globeWidth, globeHeight;
+        var land, countries;
+        var countryList;
+        var autorotate, now, diff, roation;
+        var currentCountry;
 
-    function startRotation(delay) {
-      autorotate.restart(rotate, delay || 0);
-    }
+        //
+        // Functions
+        //
 
-    function stopRotation() {
-      autorotate.stop();
-    }
+        function setAngles() {
+          var rotation = projection.rotate();
+          rotation[0] = angles.y;
+          rotation[1] = angles.x;
+          rotation[2] = angles.z;
+          projection.rotate(rotation);
+        }
 
-    function dragstarted() {
-      v0 = versor.cartesian(projection.invert(d3.mouse(this)));
-      r0 = projection.rotate();
-      q0 = versor(r0);
-      stopRotation();
-    }
+        function scale() {
+          globeWidth = document.documentElement.clientWidth;
+          globeHeight = document.documentElement.clientHeight;
+          // globeWidth = 3000;
+          // globeHeight = 3000;
+          canvas.attr("width", globeWidth).attr("height", globeHeight);
+          projection
+            .scale((scaleFactor * Math.min(globeWidth, globeHeight)) / 2)
+            .translate([globeWidth / 2, globeHeight / 2]);
+          render();
+        }
 
-    function dragged() {
-      var v1 = versor.cartesian(projection.rotate(r0).invert(d3.mouse(this)));
-      var q1 = versor.multiply(q0, versor.delta(v0, v1));
-      var r1 = versor.rotation(q1);
-      projection.rotate(r1);
-      render();
-    }
+        function startRotation(delay) {
+          autorotate.restart(rotate, delay || 0);
+        }
 
-    function dragended() {
-      startRotation(rotationDelay);
-    }
+        function stopRotation() {
+          autorotate.stop();
+        }
 
-    function render() {
-      context.clearRect(0, 0, globeWidth, globeHeight);
-      fill(water, colorWater);
-      stroke(graticule, colorGraticule);
-      fill(land, colorLand);
-      if (currentCountry) {
-        fill(currentCountry, colorCountry);
-      }
-    }
+        function dragstarted() {
+          v0 = versor.cartesian(projection.invert(d3.mouse(this)));
+          r0 = projection.rotate();
+          q0 = versor(r0);
+          stopRotation();
+        }
 
-    function fill(obj, color) {
-      context.beginPath();
-      path(obj);
-      context.fillStyle = color;
-      context.fill();
-    }
+        function dragged() {
+          var v1 = versor.cartesian(
+            projection.rotate(r0).invert(d3.mouse(this))
+          );
+          var q1 = versor.multiply(q0, versor.delta(v0, v1));
+          var r1 = versor.rotation(q1);
+          projection.rotate(r1);
+          render();
+        }
 
-    function stroke(obj, color) {
-      context.beginPath();
-      path(obj);
-      context.strokeStyle = color;
-      context.stroke();
-    }
+        function dragended() {
+          startRotation(rotationDelay);
+        }
 
-    function rotate(elapsed) {
-      now = d3.now();
-      diff = now - lastTime;
-      if (diff < elapsed) {
-        rotation = projection.rotate();
-        rotation[0] += diff * degPerMs;
-        projection.rotate(rotation);
-        render();
-      }
-      lastTime = now;
-    }
+        function render() {
+          context.clearRect(0, 0, globeWidth, globeHeight);
+          fill(water, colorWater);
+          stroke(graticule, colorGraticule);
+          fill(land, colorLand);
+          if (currentCountry) {
+            fill(currentCountry, colorCountry);
+          }
+        }
 
-    function loadData(cb) {
-      d3.json(
-        "https://unpkg.com/world-atlas@1/world/110m.json",
-        function (error, world) {
-          if (error) throw error;
-          d3.tsv(
-            "https://gist.githubusercontent.com/mbostock/4090846/raw/07e73f3c2d21558489604a0bc434b3a5cf41a867/world-country-names.tsv",
-            function (error, countries) {
+        function fill(obj, color) {
+          context.beginPath();
+          path(obj);
+          context.fillStyle = color;
+          context.fill();
+        }
+
+        function stroke(obj, color) {
+          context.beginPath();
+          path(obj);
+          context.strokeStyle = color;
+          context.stroke();
+        }
+
+        function rotate(elapsed) {
+          now = d3.now();
+          diff = now - lastTime;
+          if (diff < elapsed) {
+            rotation = projection.rotate();
+            rotation[0] += diff * degPerMs;
+            projection.rotate(rotation);
+            render();
+          }
+          lastTime = now;
+        }
+
+        function loadData(cb) {
+          d3.json(
+            "https://unpkg.com/world-atlas@1/world/110m.json",
+            function (error, world) {
               if (error) throw error;
-              cb(world, countries);
+              d3.tsv(
+                "https://gist.githubusercontent.com/mbostock/4090846/raw/07e73f3c2d21558489604a0bc434b3a5cf41a867/world-country-names.tsv",
+                function (error, countries) {
+                  if (error) throw error;
+                  cb(world, countries);
+                }
+              );
             }
           );
         }
-      );
-    }
 
-    // https://github.com/d3/d3-polygon
-    function polygonContains(polygon, point) {
-      var n = polygon.length;
-      var p = polygon[n - 1];
-      var x = point[0],
-        y = point[1];
-      var x0 = p[0],
-        y0 = p[1];
-      var x1, y1;
-      var inside = false;
-      for (var i = 0; i < n; ++i) {
-        (p = polygon[i]), (x1 = p[0]), (y1 = p[1]);
-        if (y1 > y !== y0 > y && x < ((x0 - x1) * (y - y1)) / (y0 - y1) + x1)
-          inside = !inside;
-        (x0 = x1), (y0 = y1);
-      }
-      return inside;
-    }
-
-    function mousemove() {
-      var c = getCountry(this);
-      if (!c) {
-        if (currentCountry) {
-          leave(currentCountry);
-          currentCountry = undefined;
-          render();
+        // https://github.com/d3/d3-polygon
+        function polygonContains(polygon, point) {
+          var n = polygon.length;
+          var p = polygon[n - 1];
+          var x = point[0],
+            y = point[1];
+          var x0 = p[0],
+            y0 = p[1];
+          var x1, y1;
+          var inside = false;
+          for (var i = 0; i < n; ++i) {
+            (p = polygon[i]), (x1 = p[0]), (y1 = p[1]);
+            if (
+              y1 > y !== y0 > y &&
+              x < ((x0 - x1) * (y - y1)) / (y0 - y1) + x1
+            )
+              inside = !inside;
+            (x0 = x1), (y0 = y1);
+          }
+          return inside;
         }
-        return;
-      }
-      if (c === currentCountry) {
-        return;
-      }
-      currentCountry = c;
-      render();
-      enter(c);
-    }
 
-    function getCountry(event) {
-      var pos = projection.invert(d3.mouse(event));
-      return countries.features.find(function (f) {
-        return f.geometry.coordinates.find(function (c1) {
-          return (
-            polygonContains(c1, pos) ||
-            c1.find(function (c2) {
-              return polygonContains(c2, pos);
-            })
-          );
+        function mousemove() {
+          var c = getCountry(this);
+          console.log(c);
+          if (!c) {
+            if (currentCountry) {
+              leave(currentCountry);
+              currentCountry = undefined;
+              render();
+            }
+            return;
+          }
+          if (c === currentCountry) {
+            return;
+          }
+          currentCountry = c;
+          render();
+          enter(c);
+        }
+
+        function getCountry(event) {
+          var pos = projection.invert(d3.mouse(event));
+          return countries.features.find(function (f) {
+            return f.geometry.coordinates.find(function (c1) {
+              return (
+                polygonContains(c1, pos) ||
+                c1.find(function (c2) {
+                  return polygonContains(c2, pos);
+                })
+              );
+            });
+          });
+        }
+
+        //
+        // Initialization
+        //
+
+        setAngles();
+
+        canvas
+          .call(
+            d3
+              .drag()
+              .on("start", dragstarted)
+              .on("drag", dragged)
+              .on("end", dragended)
+          )
+          .on("mousemove", mousemove);
+
+        loadData(function (world, cList) {
+          land = topojson.feature(world, world.objects.land);
+          countries = topojson.feature(world, world.objects.countries);
+          countryList = cList;
+
+          window.addEventListener("resize", scale);
+          scale();
+          autorotate = d3.timer(rotate);
         });
-      });
-    }
-
-    //
-    // Initialization
-    //
-
-    setAngles();
-
-    canvas
-      .call(
-        d3
-          .drag()
-          .on("start", dragstarted)
-          .on("drag", dragged)
-          .on("end", dragended)
-      )
-      .on("mousemove", mousemove);
-
-    loadData(function (world, cList) {
-      land = topojson.feature(world, world.objects.land);
-      countries = topojson.feature(world, world.objects.countries);
-      countryList = cList;
-
-      window.addEventListener("resize", scale);
-      scale();
-      autorotate = d3.timer(rotate);
-    });
+      }
+    );
   });
 }
 

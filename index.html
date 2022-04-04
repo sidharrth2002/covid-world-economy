@@ -17,6 +17,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
   <link href="./assets/css/treemap.css" rel="stylesheet" />
   <link href="./assets/css/globe.css" rel="stylesheet" />
+  <link href="./assets/css/circular-bar.css" rel="stylesheet" />
+  <!-- <link href="./assets/css/covid-line.css" rel="stylesheet" /> -->
   <style></style>
 </head>
 
@@ -32,7 +34,7 @@
       </div>
     </div>
     <div class="section" id="section1">
-      <div class="section-div white-text">
+      <div class="white-text">
         <div id="covid-line">
 
         </div>
@@ -40,7 +42,10 @@
     </div>
     <div class="section" id="section2">
       <div class="globe-div white-text">
-        <h2 id="current"></h2>
+        <div id="country-line">
+          <h2>Hover over a country to view the Covid Statistics</h2>
+          <h2 id="current"></h2>
+        </div>
         <canvas id="globe"></canvas>
       </div>
     </div>
@@ -80,7 +85,10 @@
       </div>
     </div>
     <div class="section" id="section5">
-      <h1>Just the simplest demo ever</h1>
+      <h1>Imports and Exports Over Time</h1>
+      <div id="imports-exports">
+
+      </div>
     </div>
   </div>
 
@@ -103,7 +111,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     var myFullpage = new fullpage("#fullpage", {
-      sectionsColor: ['#f2f2f2', '#041C32', '#041C32', '#041C32', '#041C32', '#041C32', 'whitesmoke', '#ccddff']
+      sectionsColor: ['#f2f2f2', '#041C32', 'whitesmoke', '#041C32', '#041C32', '#060419', 'whitesmoke', '#ccddff']
     });
     new TypeIt("#section0", {
       strings: "This is my string!",
@@ -112,8 +120,8 @@
   </script>
   <script type="text/javascript" src="./data/debt_2019.json"></script>
   <script type="text/javascript" src="./assets/javascript/treemap.js"></script>
-  <script type="text/javascript" src="./assets/javascript/covid-line.js"></script>
   <script type="text/javascript" src="./assets/javascript/globe.js"></script>
+  <script type="text/javascript" src="./assets/javascript/circular-bar.js"></script>
 </body>
 
 </html>
