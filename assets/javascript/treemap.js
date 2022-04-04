@@ -183,7 +183,7 @@ const onChange = function (evt) {
   }
 };
 
-var input = document.querySelector(".uk-range");
+var input = document.querySelector(".debt-range");
 input.addEventListener("input", onChange, false);
 
 update(2019);

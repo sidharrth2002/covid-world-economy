@@ -4,3 +4,14 @@
     justify-content: center;
     align-items: center;
 }
+
+.white-text {
+    fill: white;
+}
+
+#section6 {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
