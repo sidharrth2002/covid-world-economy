@@ -17,14 +17,15 @@ function globe(globeID) {
       const svg = d3
         .select("#country-line")
         .append("svg")
-        .attr("height", 700)
-        .attr("width", 900);
+        .attr("class", "line-per-country")
+        .attr("height", 300)
+        .attr("width", 500);
       const margin = { top: 0, bottom: 10, left: 10, right: 10 };
       const chart = svg
         .append("g")
-        .attr("transform", `translate(${margin.left + 400},-400)`);
+        .attr("transform", `translate(${margin.left + 30},-50)`);
       const width = +svg.attr("width") - margin.left - margin.right;
-      console.log("Width is " + width)
+      console.log("Width is " + width);
       const height = +svg.attr("height") - margin.top - margin.bottom;
       const grp = chart
         .append("g")
@@ -37,7 +38,7 @@ function globe(globeID) {
       // Add empty path
       const path = grp
         .append("path")
-        .attr("transform", `translate(${margin.left},0)`)
+        .attr("transform", `translate(${margin.left + 50},0)`)
         .attr("fill", "none")
         .attr("stroke", "steelblue")
         .attr("stroke-linejoin", "round")
@@ -54,11 +55,11 @@ function globe(globeID) {
         //   .scaleLinear()
         //   .range([0, width])
         //   .domain(d3.extent(data, (dataPoint) => dataPoint.year));
-        console.log('Width is ' + width)
+        console.log("Width is " + width);
         const xScale = d3
-            .scaleTime()
-            .range([0, width])
-            .domain(d3.extent(data, (dataPoint) => dataPoint.date))
+          .scaleTime()
+          .range([0, width])
+          .domain(d3.extent(data, (dataPoint) => dataPoint.date));
 
         return { yScale, xScale };
       }
@@ -74,13 +75,13 @@ function globe(globeID) {
         chart
           .select(".x-axis")
           .attr("transform", `translate(0,${height})`)
-          .call(d3.axisBottom(xScale).tickFormat(formatFullDate).ticks(20))
+          .call(d3.axisBottom(xScale).tickFormat(formatFullDate).ticks(50))
           .selectAll("text")
           .style("text-anchor", "end")
           .attr("dx", "-.8em")
           .attr("dy", ".15em")
           .attr("transform", "rotate(-65)");
-          // .call(d3.axisBottom(x).tickFormat(formatDate));
+        // .call(d3.axisBottom(x).tickFormat(formatDate));
 
         chart
           .select(".y-axis")
@@ -173,7 +174,7 @@ function globe(globeID) {
 
         function leave(country) {
           current.text("");
-          d3.select("#country-line").selectAll("svg").remove();
+          d3.select("#country-line").select("svg").selectAll("g").remove();
         }
 
         //
@@ -211,8 +212,8 @@ function globe(globeID) {
         }
 
         function scale() {
-          globeWidth = document.documentElement.clientWidth;
-          globeHeight = document.documentElement.clientHeight;
+          globeWidth = (document.documentElement.clientWidth / 2) + 100;
+          globeHeight = (document.documentElement.clientHeight / 2) + 100;
           // globeWidth = 3000;
           // globeHeight = 3000;
           canvas.attr("width", globeWidth).attr("height", globeHeight);

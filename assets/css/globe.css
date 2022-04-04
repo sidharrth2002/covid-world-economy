@@ -7,11 +7,16 @@ body {
             #0b041e 50%,
             #0a000c 100%);
     z-index: -1;
-    height: 110vh;
+    /* height: 110vh; */
 }
 
 #globe {
     cursor: move;
+    z-index: 10000;
+}
+
+.black {
+    color: black;
 }
 
 #current {
@@ -22,19 +27,45 @@ body {
 
 .globe-inner {
     padding: 1rem;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .globe-div {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     position: relative;
 }
 
+.globe-options {
+    width: 100%;
+}
+
+.left {
+    width: 40%;
+}
+
+.right {
+    /* margin-left: 200px; */
+    /* width: 800px; */
+}
+
+canvas, svg {
+    max-width: none !important;
+}
+
 #country-line {
-    width: 50%;
-    min-width: 800px;
+    width: 100%;
+    /* min-width: 800px; */
     height: 100%;
+    margin-left: 10px;
+}
+
+.line-per-country {
+    /* margin-left: 100px; */
 }
