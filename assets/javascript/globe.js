@@ -6,7 +6,8 @@ function globe(globeID) {
   });
 
   require(["d3"], function (d3) {
-    const parseDate = d3.timeParse("%d/%m/%Y");
+    // const parseDate = d3.timeParse("%d/%m/%Y");
+    const parseDate = d3.timeParse("%Y-%m-%d");
     const formatDate = d3.timeFormat("%b %d");
     const formatFullDate = d3.timeFormat("%b-%m-%Y");
     const formatMonth = d3.timeFormat("%b");
@@ -293,8 +294,9 @@ function globe(globeID) {
             "https://unpkg.com/world-atlas@1/world/110m.json",
             function (error, world) {
               if (error) throw error;
-              d3.tsv(
-                "https://gist.githubusercontent.com/mbostock/4090846/raw/07e73f3c2d21558489604a0bc434b3a5cf41a867/world-country-names.tsv",
+              d3.csv(
+                "../../data/globe/world.csv",
+                // "https://gist.githubusercontent.com/mbostock/4090846/raw/07e73f3c2d21558489604a0bc434b3a5cf41a867/world-country-names.tsv",
                 function (error, countries) {
                   if (error) throw error;
                   cb(world, countries);

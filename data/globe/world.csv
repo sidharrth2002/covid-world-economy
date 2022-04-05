@@ -1,0 +1,253 @@
+,id,name
+0,-1,Republic of Cyprus
+1,-2,Republic of Kosovo
+2,-3,Federal Republic of Somalia
+3,4,Islamic Republic of Afghanistan
+4,8,Republic of Albania
+5,10,Antarctica
+6,12,People's Democratic Republic of Algeria
+7,16,American Samoa
+8,20,Principality of Andorra
+9,24,Republic of Angola
+10,28,Antigua and Barbuda
+11,31,Republic of Azerbaijan
+12,32,Argentine Republic
+13,36,Commonwealth of Australia
+14,40,Republic of Austria
+15,44,Commonwealth of the Bahamas
+16,48,Kingdom of Bahrain
+17,50,People's Republic of Bangladesh
+18,51,Republic of Armenia
+19,52,Barbados
+20,56,Kingdom of Belgium
+21,60,Bermuda
+22,64,Kingdom of Bhutan
+23,68,Plurinational State of Bolivia
+24,70,Bosnia and Herzegovina
+25,72,Republic of Botswana
+26,74,Bouvet Island
+27,76,Federative Republic of Brazil
+28,84,Belize
+29,86,British Indian Ocean Territory
+30,90,Solomon Islands
+31,92,British Virgin Islands
+32,96,"Nation of Brunei, Abode of Peace"
+33,100,Republic of Bulgaria
+34,104,Republic of the Union of Myanmar
+35,108,Republic of Burundi
+36,112,Republic of Belarus
+37,116,Kingdom of Cambodia
+38,120,Republic of Cameroon
+39,124,Canada
+40,132,Republic of Cabo Verde
+41,136,Cayman Islands
+42,140,Central African Republic
+43,144,Democratic Socialist Republic of Sri Lanka
+44,148,Republic of Chad
+45,152,Republic of Chile
+46,156,People's Republic of China
+47,158,Republic of China
+48,162,Christmas Island
+49,166,Territory of the Cocos (Keeling) Islands
+50,170,Republic of Colombia
+51,174,Union of the Comoros
+52,175,Mayotte
+53,178,Republic of the Congo
+54,180,Democratic Republic of the Congo
+55,184,Cook Islands
+56,188,Republic of Costa Rica
+57,191,Republic of Croatia
+58,192,Republic of Cuba
+59,196,Republic of Cyprus
+60,203,Czech Republic
+61,204,Republic of Benin
+62,208,Kingdom of Denmark
+63,212,Commonwealth of Dominica
+64,214,Dominican Republic
+65,218,Republic of Ecuador
+66,222,Republic of El Salvador
+67,226,Republic of Equatorial Guinea
+68,231,Federal Democratic Republic of Ethiopia
+69,232,State of Eritrea
+70,233,Republic of Estonia
+71,234,Faeroe Islands
+72,238,Falkland Islands (Malvinas)
+73,239,South Georgia and The South Sandwich Islands
+74,242,Republic of Fiji
+75,246,Republic of Finland
+76,248,Åland Islands
+77,250,French Republic
+78,254,Guiana
+79,258,French Polynesia
+80,260,Territory of the French Southern and Antarctic Lands
+81,262,Republic of Djibouti
+82,266,Gabonese Republic
+83,268,Georgia
+84,270,Republic of the Gambia
+85,275,State of Palestine
+86,276,Federal Republic of Germany
+87,288,Republic of Ghana
+88,292,Gibraltar
+89,296,Republic of Kiribati
+90,300,Hellenic Republic
+91,304,Greenland
+92,308,Grenada
+93,312,Guadeloupe
+94,316,Guam
+95,320,Republic of Guatemala
+96,324,Republic of Guinea
+97,328,Co-operative Republic of Guyana
+98,332,Republic of Haiti
+99,334,Territory of Heard Island and McDonald Islands
+100,336,Vatican City State
+101,340,Republic of Honduras
+102,344,Hong Kong SAR
+103,348,Republic of Hungary
+104,352,Republic of Iceland
+105,356,Republic of India
+106,360,Republic of Indonesia
+107,364,Islamic Republic of Iran
+108,368,Republic of Iraq
+109,372,Ireland
+110,376,State of Israel
+111,380,Italian Republic
+112,384,Republic of Côte d'Ivoire
+113,388,Jamaica
+114,392,Japan
+115,398,Republic of Kazakhstan
+116,400,Hashemite Kingdom of Jordan
+117,404,Republic of Kenya
+118,408,Democratic People's Republic of Korea
+119,410,Republic of Korea
+120,414,State of Kuwait
+121,417,Kyrgyz Republic
+122,418,Lao People's Democratic Republic
+123,422,Lebanese Republic
+124,426,Kingdom of Lesotho
+125,428,Republic of Latvia
+126,430,Republic of Liberia
+127,434,State of Libya
+128,438,Principality of Liechtenstein
+129,440,Republic of Lithuania
+130,442,Grand Duchy of Luxembourg
+131,446,Macau SAR
+132,450,Republic of Madagascar
+133,454,Republic of Malawi
+134,458,Malaysia
+135,462,Republic of Maldives
+136,466,Republic of Mali
+137,470,Republic of Malta
+138,474,Martinique
+139,478,Islamic Republic of Mauritania
+140,480,Republic of Mauritius
+141,484,United Mexican States
+142,492,Principality of Monaco
+143,496,Mongolia
+144,498,Republic of Moldova
+145,499,Montenegro
+146,500,Montserrat
+147,504,Kingdom of Morocco
+148,508,Republic of Mozambique
+149,512,Sultanate of Oman
+150,516,Republic of Namibia
+151,520,Republic of Nauru
+152,524,Federal Democratic Republic of Nepal
+153,528,Kingdom of the Netherlands
+154,531,Country of Curaçao
+155,533,Aruba
+156,534,Sint Maarten (Dutch part)
+157,535,"Bonaire, Saint Eustatius and Saba"
+158,540,New Caledonia
+159,548,Republic of Vanuatu
+160,554,New Zealand
+161,558,Republic of Nicaragua
+162,562,Republic of Niger
+163,566,Federal Republic of Nigeria
+164,570,Niue
+165,574,Norfolk Island
+166,578,Kingdom of Norway
+167,580,Northern Mariana Islands
+168,581,United States Minor Outlying Islands
+169,583,Federated States of Micronesia
+170,584,Republic of the Marshall Islands
+171,585,Republic of Palau
+172,586,Islamic Republic of Pakistan
+173,591,Republic of Panama
+174,598,Independent State of Papua New Guinea
+175,600,Republic of Paraguay
+176,604,Republic of Peru
+177,608,Republic of the Philippines
+178,612,Pitcairn
+179,616,Republic of Poland
+180,620,Portuguese Republic
+181,624,Republic of Guinea-Bissau
+182,626,Democratic Republic of Timor-Leste
+183,630,Puerto Rico
+184,634,State of Qatar
+185,638,Reunion
+186,642,Romania
+187,643,Russian Federation
+188,646,Republic of Rwanda
+189,652,Territorial collectivity of Saint-Barthélemy
+190,654,"Saint Helena, Ascension and Tristan da Cunha"
+191,659,Saint Kitts and Nevis
+192,660,Anguilla
+193,662,Saint Lucia
+194,663,Saint-Martin (French part)
+195,666,Saint Pierre and Miquelon
+196,670,Saint Vincent and the Grenadines
+197,674,Republic of San Marino
+198,678,Democratic Republic of São Tomé and Príncipe
+199,682,Kingdom of Saudi Arabia
+200,686,Republic of Senegal
+201,688,Republic of Serbia
+202,690,Republic of Seychelles
+203,694,Republic of Sierra Leone
+204,702,Republic of Singapore
+205,703,Slovak Republic
+206,704,Socialist Republic of Vietnam
+207,705,Republic of Slovenia
+208,706,Federal Republic of Somalia
+209,710,Republic of South Africa
+210,716,Republic of Zimbabwe
+211,724,Kingdom of Spain
+212,728,Republic of South Sudan
+213,729,Republic of the Sudan
+214,732,Western Sahara
+215,740,Republic of Suriname
+216,744,Svalbard and Jan Mayen Islands
+217,748,Kingdom of Eswatini
+218,752,Kingdom of Sweden
+219,756,Swiss Confederation
+220,760,Syrian Arab Republic
+221,762,Republic of Tajikistan
+222,764,Kingdom of Thailand
+223,768,Togolese Republic
+224,772,Tokelau
+225,776,Kingdom of Tonga
+226,780,Republic of Trinidad and Tobago
+227,784,United Arab Emirates
+228,788,Republic of Tunisia
+229,792,Republic of Turkey
+230,795,Turkmenistan
+231,796,Turks and Caicos Islands
+232,798,Tuvalu
+233,800,Republic of Uganda
+234,804,Ukraine
+235,807,Republic of Macedonia
+236,818,Arab Republic of Egypt
+237,826,United Kingdom of Great Britain and Northern Ireland
+238,831,Guernsey
+239,832,Jersey
+240,833,Isle of Man
+241,834,United Republic of Tanzania
+242,840,United States of America
+243,850,Virgin Islands of the United States
+244,854,Burkina Faso
+245,858,Oriental Republic of Uruguay
+246,860,Republic of Uzbekistan
+247,862,Bolivarian Republic of Venezuela
+248,876,Wallis and Futuna Islands
+249,882,Independent State of Samoa
+250,887,Republic of Yemen
+251,894,Republic of Zambia

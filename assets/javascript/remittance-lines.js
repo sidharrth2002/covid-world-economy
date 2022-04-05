@@ -77,7 +77,18 @@ function remittance() {
       // color palette
       var color = d3.scaleOrdinal()
         .domain(allKeys)
-        .range(['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628', '#f781bf', '#999999'])
+        .range(['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#e41a1c', '#e41a1c', '#e41a1c'])
+
+        svg
+        .selectAll("dot")
+        .data(data)
+        .enter().append("circle")
+        .attr("fill", "steelblue")
+        .attr("r", 5)
+        .attr("cx", xx)
+        .attr("cy", yy)
+        // .on("mouseover", function(d) { showData(this, d.trendingValue);})
+        // .on("mouseout", function(){ hideData();});
 
       // Draw the line
       svg
@@ -97,7 +108,26 @@ function remittance() {
             })
             (d.values)
         })
+        function xx(e) { return x(e.Year); };
+        function yy(e) { return y(e.value); };
+        // svg
+        // .select("g")
+        // .selectAll("circle")
+        // .data(data)
+        // .enter().append("circle")
+        // .attr("fill", "steelblue")
+        // .attr("r", 5)
+        // .attr("cx", xx)
+        // .attr("cy", yy - 200)
+        // .on("mouseover", function(d) { showData(this, +d.value);})
+        // .on("mouseout", function(){ hideData();});
 
+        // svg.selectAll("dot")
+        // .data(data)
+        // .enter().append("circle")
+        // .attr("r", 3.5)
+        // .attr("cx", function(d) { return x(d.Year); })
+        // .attr("cy", function(d) { return y(d.value); });
       // Add titles
       svg
         .append("text")
