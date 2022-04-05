@@ -22,6 +22,7 @@
     <link href="./assets/css/circular-bar.css" rel="stylesheet" />
     <link href="./assets/css/style.css" rel="stylesheet" />
     <link href="./assets/css/globe.css" rel="stylesheet" />
+    <link href="./assets/css/remittance-line.css" rel="stylesheet" />
     <!-- <link href="./assets/css/covid-line.css" rel="stylesheet" /> -->
     <style></style>
   </head>
@@ -29,16 +30,16 @@
   <body>
     <div id="fullpage">
       <div class="section active" id="section0">
+        <a href="#section7"><h3>Scroll</h3></a>
         <div class="section-div black-text">
           <h1 class="uk-text-center">
             In March 2020, the 🌎 turned upside down for good. But how did
             these astronomical changes impact the world economy?
           </h1>
-          <h3>Scroll</h3>
         </div>
       </div>
       <div class="section" id="section1">
-        <div class="white-text">
+        <div class="remittance-inner white-text">
           <div id="covid-line">
 
           </div>
@@ -93,6 +94,11 @@
           <h1 class="white">
             The International Debt Distribution
           </h1>
+          <p class="uk-text-left">
+            The more debt some nations accumulate, creditor bodies become richer.
+            It is evident that the World Bank, IMF and China are consistently the strongest creditors, whose
+            dominance has only grown, even through the pandemic. Go ahead and slide!
+          </p>
           <div class="slider-container">
             <input class="uk-range debt-range" value="0" type="range">
             <div class="slider-labels">
@@ -125,8 +131,15 @@
         </div>
       </div>
       <div class="section" id="section7">
-        <h1>International Remmittance Flows</h1>
-        <div id="remittance-line"></div>
+        <div class="remittance-div">
+          <h1 class="white">International Remittance Flows</h1>
+          <p>
+            Migrants send back money to their home countries. The amounts
+            are on par with FDI and have helped to ease poverty. <b>There is a dip in remittances across all regions at the start of 2020,
+            but 2021 numbers show a slight increase.</b>
+          </p>
+          <div id="remittance-line"></div>
+        </div>
       </div>
     </div>
 
@@ -161,7 +174,7 @@
       referrerpolicy="no-referrer"></script>
     <script>
     var myFullpage = new fullpage("#fullpage", {
-      sectionsColor: ['#f2f2f2', '#041C32', 'whitesmoke', '#041C32', '#041C32', '#060419', '#041C32', 'whitesmoke', '#ccddff']
+      sectionsColor: ['#f2f2f2', '#041C32', 'whitesmoke', '#041C32', '#041C32', '#060419', '#041C32', '#041C32', '#ccddff']
     });
     new TypeIt("#section0", {
       strings: "This is my string!",
