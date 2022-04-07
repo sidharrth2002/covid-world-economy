@@ -7,7 +7,7 @@ function globe(globeID) {
 
   require(["d3"], function (d3) {
     // const parseDate = d3.timeParse("%d/%m/%Y");
-    const parseDate = d3.timeParse("%Y-%m-%d");
+    const parseDate = d3.timeParse("%d/%m/%Y");
     const formatDate = d3.timeFormat("%b %d");
     const formatFullDate = d3.timeFormat("%b-%m-%Y");
     const formatMonth = d3.timeFormat("%b");
@@ -41,7 +41,7 @@ function globe(globeID) {
         .append("path")
         .attr("transform", `translate(${margin.left + 50},0)`)
         .attr("fill", "none")
-        .attr("stroke", "steelblue")
+        .attr("stroke", "red")
         .attr("stroke-linejoin", "round")
         .attr("stroke-linecap", "round")
         .attr("stroke-width", 1.5);
@@ -129,7 +129,7 @@ function globe(globeID) {
     d3.csv(
       "../../data/covid/owid-covid-data.csv",
       (data) => {
-        data.location = data.location.replace(/\s/g, "");
+        data.location = data.location.replace(/\s/g, " ");
         data.date = parseDate(data.date);
         data.new_cases = +data.new_cases;
         let newData = {
@@ -141,7 +141,18 @@ function globe(globeID) {
       },
       (error, rows) => {
         console.log(error);
-        console.log(rows);
+        console.log("Printing all countries");
+        // let locationList = rows.map(r => r.location);
+        // locationList = locationList.filter((x, i, a) => a.indexOf(x) === i)
+        let countrySelect = document.getElementById("country-list");
+
+        // locationList.forEach(l => {
+        //   let opt = document.createElement("option");
+        //   opt.value = l.location;
+        //   opt.text = l.location;
+        //   countrySelect.add(opt, null);
+        // })
+
         // ms to wait after dragging before auto-rotating
         var rotationDelay = 3000;
         // scale of the globe (not the canvas element)
@@ -165,7 +176,6 @@ function globe(globeID) {
             return parseInt(c.id, 10) === parseInt(country.id, 10);
           });
           if (country) {
-            console.log(country);
             countryData = rows.filter((r) => r.location === country.name);
             d3.select("#country-line").selectAll("svg").remove();
             drawLine(countryData);
@@ -294,8 +304,8 @@ function globe(globeID) {
             "https://unpkg.com/world-atlas@1/world/110m.json",
             function (error, world) {
               if (error) throw error;
-              d3.csv(
-                "../../data/globe/world.csv",
+              d3.tsv(
+                "../../data/globe/world.tsv",
                 // "https://gist.githubusercontent.com/mbostock/4090846/raw/07e73f3c2d21558489604a0bc434b3a5cf41a867/world-country-names.tsv",
                 function (error, countries) {
                   if (error) throw error;
@@ -381,7 +391,21 @@ function globe(globeID) {
           land = topojson.feature(world, world.objects.land);
           countries = topojson.feature(world, world.objects.countries);
           countryList = cList;
-
+          let onlyCountries = countryList.map(c => c.name);
+          console.log('Country List', onlyCountries);
+          let countrySelect = document.getElementById("country-list");
+          onlyCountries.sort().forEach(l => {
+            let opt = document.createElement("option");
+            opt.value = l;
+            opt.text = l;
+            countrySelect.add(opt, null);
+          })
+          document.getElementById("country-list").addEventListener("change", function () {
+            let selectedCountry = this.value;
+            let countryData = rows.filter((r) => r.location === selectedCountry);
+            d3.select("#country-line").selectAll("svg").remove();
+            drawLine(countryData);
+          });
           window.addEventListener("resize", scale);
           scale();
           autorotate = d3.timer(rotate);
@@ -389,6 +413,8 @@ function globe(globeID) {
       }
     );
   });
+
+
 }
 
 globe("#globe");
