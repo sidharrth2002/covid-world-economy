@@ -51,6 +51,9 @@ body {
 }
 
 .right {
+    position: relative;
+    right: -200px;
+    /* width: 40%; */
     /* margin-left: 200px; */
     /* width: 800px; */
 }

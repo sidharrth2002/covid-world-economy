@@ -126,6 +126,86 @@ function globe(globeID) {
       // });
     }
 
+    function drawGDPLine(country) {
+      console.log('going to draw gdp line')
+      // set the dimensions and margins of the graph
+      var margin = { top: 10, right: 30, bottom: 30, left: 50 },
+        width = 460 - margin.left - margin.right,
+        height = 400 - margin.top - margin.bottom;
+
+      // append the svg object to the body of the page
+      var svg = d3
+        .select("#country-gdp-line")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      //Read the data
+      d3.csv(
+        "../../data/gdp/gdp.csv",
+
+        // When reading the csv, I must format variables:
+        function (d) {
+          return { date: d.date, value: d.value, country: d.country };
+        },
+
+        // Now I can use this dataset:
+        function (data) {
+          // Add X axis --> it is a date format
+          data = data.filter(d => d.country === country)
+
+
+          var x = d3
+            .scaleBand()
+            .padding(0.4)
+            .domain(
+              data.map(function (d) {
+                return d.date;
+              }
+            ))
+            .range([0, width]);
+          svg
+            .append("g")
+            .attr("transform", "translate(0," + (height) + ")")
+            .call(d3.axisBottom(x));
+
+          // Add Y axis
+          var y = d3
+            .scaleLinear()
+            .domain([
+              0,
+              d3.max(data, function (d) {
+                return +d.value;
+              }),
+            ])
+            .range([height, 0]);
+          svg.append("g").call(d3.axisLeft(y));
+
+          // Add the area
+          svg
+            .append("path")
+            .datum(data)
+            .attr("fill", "#cce5df")
+            .attr("stroke", "#69b3a2")
+            .attr("stroke-width", 1.5)
+            .attr(
+              "d",
+              d3
+                .area()
+                .x(function (d) {
+                  return x(d.date);
+                })
+                .y0(y(0))
+                .y1(function (d) {
+                  return y(d.value);
+                })
+            );
+        }
+      );
+    }
+
     d3.csv(
       "../../data/covid/owid-covid-data.csv",
       (data) => {
@@ -178,7 +258,9 @@ function globe(globeID) {
           if (country) {
             countryData = rows.filter((r) => r.location === country.name);
             d3.select("#country-line").selectAll("svg").remove();
+            d3.select("#country-gdp-line").selectAll("svg").remove();
             drawLine(countryData);
+            drawGDPLine(country.name);
           }
           current.text((country && country.name) || "");
         }
@@ -186,6 +268,8 @@ function globe(globeID) {
         function leave(country) {
           current.text("");
           d3.select("#country-line").select("svg").selectAll("g").remove();
+          d3.select("#country-gdp-line").selectAll("svg").remove();
+
         }
 
         //
@@ -223,8 +307,8 @@ function globe(globeID) {
         }
 
         function scale() {
-          globeWidth = (document.documentElement.clientWidth / 2) + 100;
-          globeHeight = (document.documentElement.clientHeight / 2) + 100;
+          globeWidth = document.documentElement.clientWidth / 2 + 100;
+          globeHeight = document.documentElement.clientHeight / 2 + 100;
           // globeWidth = 3000;
           // globeHeight = 3000;
           canvas.attr("width", globeWidth).attr("height", globeHeight);
@@ -391,21 +475,27 @@ function globe(globeID) {
           land = topojson.feature(world, world.objects.land);
           countries = topojson.feature(world, world.objects.countries);
           countryList = cList;
-          let onlyCountries = countryList.map(c => c.name);
-          console.log('Country List', onlyCountries);
+          let onlyCountries = countryList.map((c) => c.name);
+          console.log("Country List", onlyCountries);
           let countrySelect = document.getElementById("country-list");
-          onlyCountries.sort().forEach(l => {
+          onlyCountries.sort().forEach((l) => {
             let opt = document.createElement("option");
             opt.value = l;
             opt.text = l;
             countrySelect.add(opt, null);
-          })
-          document.getElementById("country-list").addEventListener("change", function () {
-            let selectedCountry = this.value;
-            let countryData = rows.filter((r) => r.location === selectedCountry);
-            d3.select("#country-line").selectAll("svg").remove();
-            drawLine(countryData);
           });
+          document
+            .getElementById("country-list")
+            .addEventListener("change", function () {
+              let selectedCountry = this.value;
+              let countryData = rows.filter(
+                (r) => r.location === selectedCountry
+              );
+              d3.select("#country-line").selectAll("svg").remove();
+              d3.select("#country-gdp-line").selectAll("svg").remove();
+              drawLine(countryData);
+              drawGDPLine(selectedCountry)
+            });
           window.addEventListener("resize", scale);
           scale();
           autorotate = d3.timer(rotate);
@@ -413,8 +503,6 @@ function globe(globeID) {
       }
     );
   });
-
-
 }
 
 globe("#globe");
