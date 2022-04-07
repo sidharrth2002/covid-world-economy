@@ -670,7 +670,7 @@ function wordCloud(selector) {
   var svg = d3
     .select(selector)
     .append("svg")
-    .attr("width", 500)
+    .attr("width", 900)
     .attr("height", 500)
     .append("g")
     .attr("transform", "translate(250,250)");
@@ -760,8 +760,8 @@ d3.csv("../../data/tweets/covid_tweets.csv", function (error, data) {
   //Prepare one of the sample sentences by removing punctuation,
   // creating an array of words and computing a random size attribute.
   function getWords(i) {
-    return words.slice(1, 100).join(" ")
-      .replace(/[!\.,:;\?]/g, "")
+    return words.slice(1, 1000).join(" ")
+      // .replace(/[!\.,:;\?]/g, "")
       .split(" ")
       .map(function (d) {
         return { text: d, size: 10 + Math.random() * 60 };
@@ -777,7 +777,7 @@ d3.csv("../../data/tweets/covid_tweets.csv", function (error, data) {
     vis.update(getWords(i++ % words.length));
     setTimeout(function () {
       showNewWords(vis, i + 1);
-    }, 2000);
+    }, 1000000);
   }
 
   //Create a new instance of the word cloud visualisation.
