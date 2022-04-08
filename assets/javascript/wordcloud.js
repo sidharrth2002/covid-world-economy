@@ -693,13 +693,13 @@ d3.csv(getURL("tweets/covid_tweets.csv"), function (data) {
 
     d3.layout
       .cloud()
-      .size([1300, 500])
+      .size([window.innerWidth - 400, 900])
       .words(
         word_entries.map(function (d) {
           return { text: d[0], size: 10 + (d[1] / total) * 750 };
         })
       )
-      .padding(0)
+      .padding(1)
       .rotate(function () {
         if (Math.random() > 0.5) {
           return 90;
@@ -707,7 +707,7 @@ d3.csv(getURL("tweets/covid_tweets.csv"), function (data) {
           return ~~(Math.random() * 0) * 90;
         }
       })
-      .font("Impact")
+      .font("Montserrat")
       .fontSize(function (d) {
         return d.size;
       })
@@ -717,8 +717,8 @@ d3.csv(getURL("tweets/covid_tweets.csv"), function (data) {
     function draw(words) {
       d3.select("#wordcloud")
         .append("svg")
-        .attr("width", 1300)
-        .attr("height", 500)
+        .attr("width", window.innerWidth)
+        .attr("height", window.innerHeight - 100)
         .append("g")
         .attr("transform", "translate(620,300)")
         .selectAll("text")
