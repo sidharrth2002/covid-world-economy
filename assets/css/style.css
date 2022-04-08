@@ -12,3 +12,22 @@ body, h1, h2, h3, h4, a {
     background-repeat: no-repeat;
     height: 100vh;
 }
+
+#section6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.import-export-caption {
+    position: absolute;
+    left: 50px;
+    top: 30%;
+    width: 30%;
+}
+
+/* #imports-exports {
+    position: relative;
+    top: -500;
+} */

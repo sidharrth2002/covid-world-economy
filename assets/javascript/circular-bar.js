@@ -56,9 +56,9 @@ function circularBar() {
           let importData = data.filter((d) => d.subject === "IMP");
           let exportData = data.filter((d) => d.subject === "EXP");
           var margin = { top: 0, right: 0, bottom: 0, left: 0 },
-            width = 600 - margin.left - margin.right,
-            height = 600 - margin.top - margin.bottom,
-            innerRadius = 90,
+            width = 1000 - margin.left - margin.right,
+            height = 900 - margin.top - margin.bottom,
+            innerRadius = 150,
             outerRadius = Math.min(width, height) / 2; // the outerRadius goes from the middle of the SVG area to the border
 
           // append the svg object
@@ -73,7 +73,7 @@ function circularBar() {
               "translate(" +
                 (width / 2 + margin.left) +
                 "," +
-                (height / 2 + margin.top) +
+                ((height / 2 + margin.top) - 100) +
                 ")"
             );
 

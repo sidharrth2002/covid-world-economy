@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,15 +8,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="bower_components/Morphext/dist/morphext.css" />
-    <link rel="stylesheet"
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css"
-      integrity="sha512-4rPgyv5iG0PZw8E+oRdfN/Gq+yilzt9rQ8Yci2jJ15rAyBmF0HBE4wFjBkoB72cxBeg63uobaj1UcNt/scV93w=="crossorigin="anonymous"
-      referrerpolicy="no-referrer" />
-    <link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/uikit@3.13.4/dist/css/uikit.min.css" />
+      integrity="sha512-4rPgyv5iG0PZw8E+oRdfN/Gq+yilzt9rQ8Yci2jJ15rAyBmF0HBE4wFjBkoB72cxBeg63uobaj1UcNt/scV93w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/uikit@3.13.4/dist/css/uikit.min.css"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-      rel="stylesheet" />
+      rel="stylesheet"
+    />
     <link href="./assets/css/treemap.css" rel="stylesheet" />
     <link href="./assets/css/circular-bar.css" rel="stylesheet" />
     <link href="./assets/css/style.css" rel="stylesheet" />
@@ -32,17 +37,21 @@
     <div id="fullpage">
       <div class="section active" id="section0">
         <div class="section-div white-text">
-          <h1 class="uk-text-center uk-heading-medium">
+          <h1 class="main-heading uk-text-center uk-heading-medium">
             In March 2020, the 🌎 turned upside down for good.
           </h1>
-          <a href="#section7" class="white-text"><h3>Scroll</h3></a>
+          <button
+            class="uk-button uk-button-default uk-margin-small-right"
+            type="button"
+            uk-toggle="target: #offcanvas-usage"
+          >
+            Navigate
+          </button>
         </div>
       </div>
       <div class="section" id="section1">
         <div class="remittance-inner white-text">
-          <div id="covid-line">
-
-          </div>
+          <div id="covid-line"></div>
         </div>
       </div>
       <div class="section" id="section2">
@@ -51,11 +60,15 @@
             <div class="globe-options">
               <h2>Hover over a country to view Covid-19 Statistics.</h2>
               <p class="black">
-                Alternatively, select one from the dropdown below. By visualising the change in cases over time, we can identify key events that took place over time. The analysis concerns both a <span class="uk-text-bold">virological</span> and <span class="uk-text-bold">economic</span> perspective, driven by data from the World Bank, John Hopkins and the IMF.
+                Alternatively, select one from the dropdown below. By
+                visualising the change in cases over time, we can identify key
+                events that took place over time. The analysis concerns both a
+                <span class="uk-text-bold">virological</span> and
+                <span class="uk-text-bold">economic</span> perspective, driven
+                by data from the World Bank, John Hopkins and the IMF.
               </p>
               <form>
-                <select id="country-list" class="uk-select">
-                </select>
+                <select id="country-list" class="uk-select"></select>
               </form>
             </div>
             <h3 id="current" class="uk-text-center uk-text-bold"></h3>
@@ -71,134 +84,207 @@
           <canvas class="right" id="globe"></canvas>
         </div>
       </div>
-      <div class="section" id="section3">
+      <!-- <div class="section" id="section3">
         <div class="section-div white-text">
           <h1 class="uk-text-center">
             We take a macro-economic journey from 2019 all the way to 2022.
             Brace for impact!
           </h1>
         </div>
-      </div>
+      </div> -->
       <div class="section" id="section4">
         <div class="section-div white-text">
-          <h2>The world bank reported that low-income country debt has risen to
-            $860 billion in 2020.</h2>
-          <p>
+          <h1>
+            The world bank reported that low-income country debt has risen to
+            $860 billion in 2020.
+          </h1>
+          <p class="uk-text-large">
             To hinder the impact of Covid, the World Bank suspended debt-service
-            payments for the poorest countries in the world,
-            to allow cash flow for internal activities and Covid-19 mitigation.
-            <p>Indebtedness outpaced Gross National Income. But who owes who 💸
-              and who is still liquid in 2022?</p>
-          </div>
+            payments for the poorest countries in the world, to allow cash flow
+            for internal activities and Covid-19 mitigation. Indebtedness
+            outpaced Gross National Income. But who owes who 💸 and who is still
+            liquid in 2022?
+          </p>
         </div>
-        <div class="section white-text" id="section5">
-          <div class="section3-inner">
-            <h1 class="white">
-              The International Debt Distribution
-            </h1>
-            <p class="uk-text-left">
+      </div>
+      <div class="section white-text" id="section5">
+        <div class="section3-inner">
+          <h1 class="white">The International Debt Distribution</h1>
+          <div class="uk-flex uk-flex-center">
+            <p class="uk-text-left uk-text-large uk-width-2-3">
               The more debt some nations accumulate, creditor bodies become
-              richer.
-              It is evident that the World Bank, IMF and China are consistently
-              the strongest creditors, whose
-              dominance has only grown, even through the pandemic. Go ahead and
-              slide!
+              richer. It is evident that the World Bank, IMF and China are
+              consistently the strongest creditors, whose dominance has only
+              grown, even through the pandemic. Go ahead and slide!
             </p>
-            <div class="slider-container">
-              <input class="uk-range debt-range" value="0" type="range">
-              <div class="slider-labels">
-                <div>2019</div>
-                <div>2020</div>
-                <div>2021</div>
-                <div>2022</div>
-              </div>
-            </div>
-            <div class="treemap-container">
-              <nav>
-                <div class="up">&larr; UP</div>
-              </nav>
-              <div class="feature" id="chart"></div>
-            </div>
           </div>
-        </div>
-        <div class="section white-text" id="section6">
-          <h1 class="white">Imports and Exports Over Time</h1>
+
           <div class="slider-container">
-            <input class="uk-range import-export-range" value="0" type="range">
+            <input class="uk-range debt-range" value="0" type="range" />
             <div class="slider-labels">
               <div>2019</div>
               <div>2020</div>
               <div>2021</div>
+              <div>2022</div>
             </div>
           </div>
-          <div id="imports-exports">
-
+          <div class="treemap-container">
+            <nav>
+              <div class="up">&larr; UP</div>
+            </nav>
+            <div class="feature" id="chart"></div>
           </div>
-        </div>
-        <div class="section" id="section7">
-          <div class="remittance-div">
-            <h1 class="white">International Remittance Flows</h1>
-            <p>
-              Migrants send back money to their home countries. The amounts
-              are on par with FDI and have helped to ease poverty. <b>There is a
-                dip in remittances across all regions at the start of 2020,
-                but 2021 numbers show a slight increase.</b>
-            </p>
-            <div id="remittance-line"></div>
-          </div>
-        </div>
-        <div class="section" id="section8">
-            <h1 class="white">What are people saying?</h1>
-            <div id="wordcloud"></div>
         </div>
       </div>
+      <div class="section white-text" id="section6">
+        <div class="import-export-caption">
+        <h2 class="white uk-text-left">Imports and Exports Over Time</h2>
+        <p class="uk-text-left">Hypothetically, Covid-19 begins to affect the purchasing power of nations. However, it doesn't always end badly as the biggest industrial powers in the world continue churning out product.</p>
+        <div class="slider-container">
+          <input class="uk-range import-export-range" value="0" type="range" />
+          <div class="slider-labels">
+            <div>2019</div>
+            <div>2020</div>
+            <div>2021</div>
+          </div>
+        </div>
+      </div>
+      <div id="imports-exports"></div>
+      </div>
+      <div class="section" id="section7">
+        <div class="remittance-div">
+          <h1 class="white">International Remittance Flows</h1>
+          <p>
+            Migrants send back money to their home countries. The amounts are on
+            par with FDI and have helped to ease poverty.
+            <b
+              >There is a dip in remittances across all regions at the start of
+              2020, but 2021 numbers show a slight increase.</b
+            >
+          </p>
+          <div id="remittance-line"></div>
+        </div>
+      </div>
+      <div class="section" id="section8">
+        <h1 class="white">What are people saying?</h1>
+        <div id="wordcloud"></div>
+      </div>
+    </div>
 
-      <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="crossorigin="anonymous"
-        referrerpolicy="no-referrer"></script>
-      <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/vendors/easings.min.js"
-        integrity="sha512-SrKslwu6IjHEo/8mAOtkoUOT3MzHCEOFWktrC8BNtjPuBBYLYjg1y/Marat34uYfOfxDMLEwy8DLArWEVc2i+w=="crossorigin="anonymous"
-        referrerpolicy="no-referrer"></script>
-      <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"
-        integrity="sha512-gSf3NCgs6wWEdztl1e6vUqtRP884ONnCNzCpomdoQ0xXsk06lrxJsR7jX5yM/qAGkPGsps+4bLV5IEjhOZX+gg=="crossorigin="anonymous"
-        referrerpolicy="no-referrer"></script>
-      <script
-        src="https://cdn.jsdelivr.net/npm/uikit@3.13.4/dist/js/uikit.min.js"></script>
-      <script
-        src="https://cdn.jsdelivr.net/npm/uikit@3.13.4/dist/js/uikit-icons.min.js"></script>
-      <script src="https://d3js.org/d3.v4.min.js"></script>
-      <script type="text/javascript" src="./assets/javascript/wordcloud.js"></script>
-      <!-- <script src="https://raw.githubusercontent.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script> -->
-      <!-- <script type="text/javascript" src="./assets/javascript/wordcloud.js"></script> -->
-      <script src="https://unpkg.com/typeit@8.3.3/dist/index.umd.js"></script>
-      <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="crossorigin="anonymous"
-        referrerpolicy="no-referrer"></script>
-      <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/versor@0.2"></script>
-      <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"
-        integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg=="crossorigin="anonymous"
-        referrerpolicy="no-referrer"></script>
-      <script>
-        var myFullpage = new fullpage("#fullpage", {
-          sectionsColor: ['#f2f2f2', '#041C32', 'whitesmoke', '#041C32', '#041C32', '#060419', '#041C32', '#041C32', 'whitesmoke']
-        });
-        new TypeIt("#section0", {
-          strings: "This is my string!",
-          speed: 20,
-        }).go();
-      </script>
-      <script type="text/javascript" src="./data/debt_2019.json"></script>
-      <script type="text/javascript" src="./assets/javascript/treemap.js"></script>
-      <script type="text/javascript" src="./assets/javascript/globe.js"></script>
-      <script type="text/javascript" src="./assets/javascript/circular-bar.js"></script>
-      <script type="text/javascript" src="./assets/javascript/remittance-lines.js"></script>
-      <!-- <script type="text/javascript" src="./assets/javascript/covid-line.js"></script> -->
-    </body>
-  </html>
+    <div id="offcanvas-usage" uk-offcanvas>
+      <div class="uk-offcanvas-bar">
+        <button
+          class="uk-offcanvas-close"
+          type="button"
+          uk-close
+        ></button>
+        <h3>Built with ❤️ by Sid, Deva & Koogan in Kuala Lumpur.</h3>
+        <ul class="uk-nav uk-nav-default">
+          <li class="uk-nav-header">Navigation</li>
+          <li>
+            <a href="#section0">Home</a>
+          </li>
+          <li>
+            <a href="#section1">Covid-19</a>
+          </li>
+          <li>
+            <a href="#section2">Globe</a>
+          </li>
+          <li>
+            <a href="#section3">Macro-Economic</a>
+          </li>
+          <li>
+            <a href="#section4">Debt Distribution</a>
+          </li>
+          <li>
+            <a href="#section5">Imports and Exports</a>
+          </li>
+          <li>
+            <a href="#section6">Remittance Flows</a>
+          </li>
+          <li>
+            <a href="#section7">What are people saying?</a>
+          </li>
+        <p>
+
+        </p>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/vendors/easings.min.js"
+      integrity="sha512-SrKslwu6IjHEo/8mAOtkoUOT3MzHCEOFWktrC8BNtjPuBBYLYjg1y/Marat34uYfOfxDMLEwy8DLArWEVc2i+w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"
+      integrity="sha512-gSf3NCgs6wWEdztl1e6vUqtRP884ONnCNzCpomdoQ0xXsk06lrxJsR7jX5yM/qAGkPGsps+4bLV5IEjhOZX+gg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.4/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.4/dist/js/uikit-icons.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <!-- <script
+      type="text/javascript"
+      src="./assets/javascript/wordcloud.js"
+    ></script> -->
+    <!-- <script src="https://raw.githubusercontent.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script> -->
+    <!-- <script type="text/javascript" src="./assets/javascript/wordcloud.js"></script> -->
+    <script src="https://unpkg.com/typeit@8.3.3/dist/index.umd.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/versor@0.2"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"
+      integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      var myFullpage = new fullpage("#fullpage", {
+        sectionsColor: [
+          "#f2f2f2",
+          "#041C32",
+          "whitesmoke",
+          "#041C32",
+          "#060419",
+          "#041C32",
+          "#041C32",
+          "whitesmoke",
+        ],
+      });
+      new TypeIt(".main-heading", {
+        strings: "",
+        speed: 20,
+      }).go();
+    </script>
+    <script type="text/javascript" src="./data/debt_2019.json"></script>
+    <script
+      type="text/javascript"
+      src="./assets/javascript/treemap.js"
+    ></script>
+    <script type="text/javascript" src="./assets/javascript/globe.js"></script>
+    <script
+      type="text/javascript"
+      src="./assets/javascript/circular-bar.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./assets/javascript/remittance-lines.js"
+    ></script>
+    <!-- <script type="text/javascript" src="./assets/javascript/covid-line.js"></script> -->
+  </body>
+</html>
