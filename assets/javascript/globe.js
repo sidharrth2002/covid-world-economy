@@ -86,7 +86,7 @@ function globe(globeID) {
 
         chart
           .select(".y-axis")
-          .attr("transform", `translate(0, 0)`)
+          .attr("transform", `translate(20, 0)`)
           .call(d3.axisLeft(yScale));
       }
 
@@ -259,6 +259,8 @@ function globe(globeID) {
             countryData = rows.filter((r) => r.location === country.name);
             d3.select("#country-line").selectAll("svg").remove();
             d3.select("#country-gdp-line").selectAll("svg").remove();
+            d3.select("#country-line-title").text(`Daily Covid-19 cases in ${country.name}`);
+            d3.select("#country-gdp-line-title").text(`GDP in ${country.name}`);
             drawLine(countryData);
             drawGDPLine(country.name);
           }
@@ -267,9 +269,10 @@ function globe(globeID) {
 
         function leave(country) {
           current.text("");
-          d3.select("#country-line").select("svg").selectAll("g").remove();
+          d3.select("#country-line").select("svg").remove();
           d3.select("#country-gdp-line").selectAll("svg").remove();
-
+          d3.select("#country-line-title").text("");
+          d3.select("#country-gdp-line-title").text("");
         }
 
         //
@@ -493,6 +496,8 @@ function globe(globeID) {
               );
               d3.select("#country-line").selectAll("svg").remove();
               d3.select("#country-gdp-line").selectAll("svg").remove();
+              d3.select("#country-line-title").text(`Daily Covid-19 cases in ${selectedCountry}`);
+              d3.select("#country-gdp-line-title").text(`GDP in ${selectedCountry}`);
               drawLine(countryData);
               drawGDPLine(selectedCountry)
             });

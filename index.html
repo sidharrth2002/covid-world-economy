@@ -49,22 +49,22 @@
         <div class="globe-inner">
           <div class="left">
             <div class="globe-options">
-              <h2>Hover over a country to view Covid-19 Statistics</h2>
+              <h2>Hover over a country to view Covid-19 Statistics.</h2>
               <p class="black">
-                By visualising the change in cases over time, we can identify
-                key events that took place over time.
+                Alternatively, select one from the dropdown below. By visualising the change in cases over time, we can identify key events that took place over time. The analysis concerns both a <span class="uk-text-bold">virological</span> and <span class="uk-text-bold">economic</span> perspective, driven by data from the World Bank, John Hopkins and the IMF.
               </p>
               <form>
                 <select id="country-list" class="uk-select">
                 </select>
               </form>
             </div>
-            <h4 id="current" class="uk-text-center"></h4>
+            <h3 id="current" class="uk-text-center uk-text-bold"></h3>
             <div class="globe-div white-text">
               <div id="country-line">
+                <h4 id="country-line-title">Daily Covid-19 cases</h4>
               </div>
               <div id="country-gdp-line">
-
+                <h4 id="country-gdp-line-title">GDP($)</h4>
               </div>
             </div>
           </div>
@@ -82,7 +82,7 @@
       <div class="section" id="section4">
         <div class="section-div white-text">
           <h2>The world bank reported that low-income country debt has risen to
-            $860 billion in 2020.</h3>
+            $860 billion in 2020.</h2>
           <p>
             To hinder the impact of Covid, the World Bank suspended debt-service
             payments for the poorest countries in the world,
@@ -199,5 +199,6 @@
       <script type="text/javascript" src="./assets/javascript/globe.js"></script>
       <script type="text/javascript" src="./assets/javascript/circular-bar.js"></script>
       <script type="text/javascript" src="./assets/javascript/remittance-lines.js"></script>
+      <!-- <script type="text/javascript" src="./assets/javascript/covid-line.js"></script> -->
     </body>
   </html>
