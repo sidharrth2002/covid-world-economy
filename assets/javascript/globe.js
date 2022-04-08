@@ -144,8 +144,7 @@ function globe(globeID) {
 
       //Read the data
       d3.csv(
-        "../../data/gdp/gdp.csv",
-
+        getURL("gdp/gdp.csv"),
         // When reading the csv, I must format variables:
         function (d) {
           return { date: d.date, value: d.value, country: d.country };
@@ -207,7 +206,7 @@ function globe(globeID) {
     }
 
     d3.csv(
-      "../../data/covid/owid-covid-data.csv",
+      getURL(`covid/owid-covid-data.csv`),
       (data) => {
         data.location = data.location.replace(/\s/g, " ");
         data.date = parseDate(data.date);
@@ -392,7 +391,7 @@ function globe(globeID) {
             function (error, world) {
               if (error) throw error;
               d3.tsv(
-                "../../data/globe/world.tsv",
+                getURL(`globe/world.tsv`),
                 // "https://gist.githubusercontent.com/mbostock/4090846/raw/07e73f3c2d21558489604a0bc434b3a5cf41a867/world-country-names.tsv",
                 function (error, countries) {
                   if (error) throw error;

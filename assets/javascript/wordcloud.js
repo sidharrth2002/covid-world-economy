@@ -662,7 +662,7 @@
 //Simple animated example of d3-cloud - https://github.com/jasondavies/d3-cloud
 //Based on https://github.com/jasondavies/d3-cloud/blob/master/examples/simple.html
 
-d3.csv("../../data/tweets/covid_tweets.csv", function (data) {
+d3.csv(getURL("tweets/covid_tweets.csv"), function (data) {
   data = data.map(d => d.tweet);
   drawWordCloud(data.join(" "));
 

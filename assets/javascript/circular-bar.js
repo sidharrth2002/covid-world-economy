@@ -41,7 +41,7 @@ function circularBar() {
 
     function update(year) {
       d3.csv(
-        "../../data/import_export/import_export.csv",
+        getURL(`import_export/import_export.csv`),
         (data) => {
           let newObj = {
             country: data.Country,

@@ -17,7 +17,7 @@ function remittance() {
 
     //Read the data
     d3.csv(
-      "../../data/remittance/remittance-inflow.csv",
+      getURL(`remittance/remittance-inflow.csv`),
       function (data) {
         return {
           Year: data.Year,

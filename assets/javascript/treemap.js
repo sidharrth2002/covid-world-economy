@@ -270,13 +270,13 @@ function treemap() {
 
     const update = (year) => {
       console.log(`../../data/debt/debt_${year}.json`);
-      let fetchLoc = "";
-      if (window.location.href.includes("covid-world")) {
-        fetchLoc = `https://sidharrth.me/covid-world-economy/data/debt/debt_${year}.json`;
-      } else {
-        fetchLoc = `../../data/debt/debt_${year}.json`;
-      }
-      fetch(fetchLoc)
+      // let fetchLoc = "";
+      // if (window.location.href.includes("covid-world")) {
+      //   fetchLoc = `https://sidharrth.me/covid-world-economy/data/debt/debt_${year}.json`;
+      // } else {
+      //   fetchLoc = `../../data/debt/debt_${year}.json`;
+      // }
+      fetch(getURL(`debt/debt_${year}.json`))
         .then((d) => d.json())
         .then((data) => {
           data = data[0];
