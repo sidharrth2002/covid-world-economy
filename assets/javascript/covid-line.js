@@ -77,7 +77,7 @@ function covidLine(lineID) {
       .append("text")
       .attr("x", 0)
       .attr("y", height + 50)
-      .text("Source: My ass");
+      .text("");
 
     // add event listener for clicks
     appendData(2020);
