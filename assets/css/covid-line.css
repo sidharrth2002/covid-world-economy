@@ -1,4 +1,4 @@
-html,
+/* html,
 body {
   margin: 0;
   height: 100%;
@@ -6,9 +6,15 @@ body {
   font-family: Helvetica;
   background: #000018;
   color: gainsboro;
+} */
+
+.section-inner {
+  padding: 4rem;
+  width: 90%;
+  margin: 0 auto;
 }
 
-#root {
+#covid-line {
   margin: 0 auto;
   padding: 80px 20px;
 }
@@ -17,15 +23,15 @@ svg {
   text-align: center;
 }
   
-text {
-  font-family: Helvetica;
+#covid-line > svg > g > g > g > text {
+  font-family: 'Montserrat';
   font-size: 14px;
   fill: gainsboro;
 }
 
 text.title {
   font-size: 22px;
-  fill: Aqua;
+  fill: yellow;
 }
 
 .subtitle text {
@@ -40,12 +46,12 @@ path {
 
 path.line {
   fill: none;
-  stroke: blue;
+  stroke: yellow;
   stroke-width: 3px;
 }
 
 path.area {
-  fill: blue;
+  fill: yellow;
   opacity: 0.2;
 }
 

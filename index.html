@@ -29,7 +29,7 @@
     <link href="./assets/css/globe.css" rel="stylesheet" />
     <link href="./assets/css/remittance-line.css" rel="stylesheet" />
     <link href="./assets/css/wordcloud.css" rel="stylesheet" />
-    <!-- <link href="./assets/css/covid-line.css" rel="stylesheet" /> -->
+    <link href="./assets/css/covid-line.css" rel="stylesheet" />
     <style></style>
   </head>
 
@@ -49,9 +49,27 @@
           </button>
         </div>
       </div>
-      <div class="section" id="section1">
-        <div class="remittance-inner white-text">
-          <div id="covid-line"></div>
+      <div class="covid-line-section section" id="section1">
+        <div class="section-inner white-text">
+          <h3>Hover and scroll to view daily case number fluctuations. Observe the constant rise through 2020 and upon reaching an inflection point, the back-and-forth fluctuations in 2021 and 2022.</h3>
+          <p>The real question is how these changes had an impact on the world economy.</p>
+          <div id="covid-line">
+            <div id="options">
+              <label>
+                  <input class="radio" name="radio" value="2020" type="radio" />
+                  2020
+              </label>
+              <label>
+                  <input class="radio" name="radio" value="2021" type="radio" checked />
+                  2021
+              </label>
+              <label>
+                <input class="radio" name="radio" value="2022" type="radio" checked />
+                2022
+            </label>
+            </div>
+          </div>
+          <!-- <div id="covid-line"></div> -->
         </div>
       </div>
       <div class="section" id="section2">
@@ -272,12 +290,11 @@
         speed: 20,
       }).go();
     </script>
+
     <script type="text/javascript" src="./data/debt_2019.json"></script>
-    <script
-      type="text/javascript"
-      src="./assets/javascript/treemap.js"
-    ></script>
+    <script type="text/javascript" src="./assets/javascript/treemap.js"></script>
     <script type="text/javascript" src="./assets/javascript/globe.js"></script>
+    <script type="text/javascript" src="./assets/javascript/covid-line.js"></script>
     <script
       type="text/javascript"
       src="./assets/javascript/circular-bar.js"
@@ -286,6 +303,5 @@
       type="text/javascript"
       src="./assets/javascript/remittance-lines.js"
     ></script>
-    <!-- <script type="text/javascript" src="./assets/javascript/covid-line.js"></script> -->
   </body>
 </html>

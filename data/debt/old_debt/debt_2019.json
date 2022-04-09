@@ -1,0 +1,1221 @@
+[{
+    "name": "debt",
+    "children": [
+        {
+            "name": "Asian Dev. Bank",
+            "children": [
+                {
+                    "name": "Afghanistan",
+                    "value": 14275000.0
+                },
+                {
+                    "name": "Bangladesh",
+                    "value": 656569000.0
+                },
+                {
+                    "name": "Bhutan",
+                    "value": 14238000.0
+                },
+                {
+                    "name": "Cambodia",
+                    "value": 62968000.0
+                },
+                {
+                    "name": "Fiji",
+                    "value": 13357000.0
+                },
+                {
+                    "name": "Kyrgyz Republic",
+                    "value": 34857000.0
+                },
+                {
+                    "name": "Lao PDR",
+                    "value": 54453000.0
+                },
+                {
+                    "name": "Maldives",
+                    "value": 6599000.0
+                },
+                {
+                    "name": "Mongolia",
+                    "value": 72245000.0
+                },
+                {
+                    "name": "Myanmar",
+                    "value": 15859000.0
+                },
+                {
+                    "name": "Nepal",
+                    "value": 111265000.0
+                },
+                {
+                    "name": "Pakistan",
+                    "value": 995790000.0
+                },
+                {
+                    "name": "Papua New Guinea",
+                    "value": 80982000.0
+                },
+                {
+                    "name": "Samoa",
+                    "value": 7208000.0
+                },
+                {
+                    "name": "Solomon Islands",
+                    "value": 2788000.0
+                },
+                {
+                    "name": "Tajikistan",
+                    "value": 17857000.0
+                },
+                {
+                    "name": "Timor-Leste",
+                    "value": 5214000.0
+                },
+                {
+                    "name": "Tonga",
+                    "value": 2358000.0
+                },
+                {
+                    "name": "Uzbekistan",
+                    "value": 223737000.0
+                },
+                {
+                    "name": "Vanuatu",
+                    "value": 2472000.0
+                }
+            ]
+        },
+        {
+            "name": "Bondholders",
+            "children": [
+                {
+                    "name": "Angola",
+                    "value": 1521023000.0
+                },
+                {
+                    "name": "Benin",
+                    "value": 3851527.3
+                },
+                {
+                    "name": "Cambodia",
+                    "value": 28050000.0
+                },
+                {
+                    "name": "Congo, Rep.",
+                    "value": 46421000.0
+                },
+                {
+                    "name": "Cote d'Ivoire",
+                    "value": 1891882461.0
+                },
+                {
+                    "name": "Dominica",
+                    "value": 1854814.9
+                },
+                {
+                    "name": "Ethiopia",
+                    "value": 66250000.0
+                },
+                {
+                    "name": "Ghana",
+                    "value": 859123000.0
+                },
+                {
+                    "name": "Grenada",
+                    "value": 19050370.4
+                },
+                {
+                    "name": "Guinea-Bissau",
+                    "value": 3786000.0
+                },
+                {
+                    "name": "Honduras",
+                    "value": 125013000.0
+                },
+                {
+                    "name": "Kenya",
+                    "value": 1144642000.0
+                },
+                {
+                    "name": "Lao PDR",
+                    "value": 111210799.5
+                },
+                {
+                    "name": "Maldives",
+                    "value": 23000000.0
+                },
+                {
+                    "name": "Mongolia",
+                    "value": 847484000.0
+                },
+                {
+                    "name": "Nigeria",
+                    "value": 2206135000.0
+                },
+                {
+                    "name": "Pakistan",
+                    "value": 2465717000.0
+                },
+                {
+                    "name": "Papua New Guinea",
+                    "value": 41875000.0
+                },
+                {
+                    "name": "Rwanda",
+                    "value": 26500000.0
+                },
+                {
+                    "name": "Senegal",
+                    "value": 206659380.1
+                },
+                {
+                    "name": "St. Lucia",
+                    "value": 19628925.9
+                },
+                {
+                    "name": "St. Vincent and the Grenadines",
+                    "value": 1793333.3
+                },
+                {
+                    "name": "Tajikistan",
+                    "value": 35625000.0
+                },
+                {
+                    "name": "Uzbekistan",
+                    "value": 26875000.0
+                },
+                {
+                    "name": "Zambia",
+                    "value": 237437000.0
+                }
+            ]
+        },
+        {
+            "name": "China",
+            "children": [
+                {
+                    "name": "Angola",
+                    "value": 4056628000.0
+                },
+                {
+                    "name": "Bangladesh",
+                    "value": 149612342.3
+                },
+                {
+                    "name": "Benin",
+                    "value": 16932096.9
+                },
+                {
+                    "name": "Burkina Faso",
+                    "value": 5035000.0
+                },
+                {
+                    "name": "Burundi",
+                    "value": 137993.7
+                },
+                {
+                    "name": "Cabo Verde",
+                    "value": 2574385.5
+                },
+                {
+                    "name": "Cambodia",
+                    "value": 181841532.3
+                },
+                {
+                    "name": "Cameroon",
+                    "value": 296038114.3
+                },
+                {
+                    "name": "Central African Republic",
+                    "value": 5609087.5
+                },
+                {
+                    "name": "Chad",
+                    "value": 3925468.8
+                },
+                {
+                    "name": "Congo, Dem. Rep.",
+                    "value": 34397417.5
+                },
+                {
+                    "name": "Congo, Rep.",
+                    "value": 261130764.4
+                },
+                {
+                    "name": "Cote d'Ivoire",
+                    "value": 51965290.5
+                },
+                {
+                    "name": "Djibouti",
+                    "value": 19590403.7
+                },
+                {
+                    "name": "Dominica",
+                    "value": 3354563.5
+                },
+                {
+                    "name": "Ethiopia",
+                    "value": 978639633.3
+                },
+                {
+                    "name": "Fiji",
+                    "value": 34246968.4
+                },
+                {
+                    "name": "Ghana",
+                    "value": 388958334.9
+                },
+                {
+                    "name": "Guinea",
+                    "value": 14467539.4
+                },
+                {
+                    "name": "Guyana",
+                    "value": 18878053.4
+                },
+                {
+                    "name": "Honduras",
+                    "value": 62565000.0
+                },
+                {
+                    "name": "Kenya",
+                    "value": 510471137.4
+                },
+                {
+                    "name": "Lao PDR",
+                    "value": 232070281.2
+                },
+                {
+                    "name": "Lesotho",
+                    "value": 5098959.8
+                },
+                {
+                    "name": "Liberia",
+                    "value": 1011422.6
+                },
+                {
+                    "name": "Madagascar",
+                    "value": 6315742.3
+                },
+                {
+                    "name": "Malawi",
+                    "value": 14964709.9
+                },
+                {
+                    "name": "Maldives",
+                    "value": 47906437.1
+                },
+                {
+                    "name": "Mali",
+                    "value": 33255787.4
+                },
+                {
+                    "name": "Mauritania",
+                    "value": 30999322.9
+                },
+                {
+                    "name": "Mongolia",
+                    "value": 12233000.0
+                },
+                {
+                    "name": "Mozambique",
+                    "value": 177975000.0
+                },
+                {
+                    "name": "Myanmar",
+                    "value": 485147432.2
+                },
+                {
+                    "name": "Nepal",
+                    "value": 2933052.9
+                },
+                {
+                    "name": "Nicaragua",
+                    "value": 332000.0
+                },
+                {
+                    "name": "Niger",
+                    "value": 40249927.1
+                },
+                {
+                    "name": "Nigeria",
+                    "value": 207892000.0
+                },
+                {
+                    "name": "Pakistan",
+                    "value": 2135936342.4
+                },
+                {
+                    "name": "Papua New Guinea",
+                    "value": 33686876.7
+                },
+                {
+                    "name": "Rwanda",
+                    "value": 5611549.1
+                },
+                {
+                    "name": "Samoa",
+                    "value": 12627940.1
+                },
+                {
+                    "name": "Senegal",
+                    "value": 144173251.2
+                },
+                {
+                    "name": "Sierra Leone",
+                    "value": 3614043.8
+                },
+                {
+                    "name": "St. Vincent and the Grenadines",
+                    "value": 3539000.0
+                },
+                {
+                    "name": "Tajikistan",
+                    "value": 83311098.1
+                },
+                {
+                    "name": "Tanzania",
+                    "value": 255160689.6
+                },
+                {
+                    "name": "Togo",
+                    "value": 28853062.9
+                },
+                {
+                    "name": "Tonga",
+                    "value": 2084819.2
+                },
+                {
+                    "name": "Uganda",
+                    "value": 88213501.9
+                },
+                {
+                    "name": "Uzbekistan",
+                    "value": 158972637.2
+                },
+                {
+                    "name": "Vanuatu",
+                    "value": 4956042.9
+                },
+                {
+                    "name": "Zambia",
+                    "value": 329908605.4
+                }
+            ]
+        },
+        {
+            "name": "France",
+            "children": [
+                {
+                    "name": "Angola",
+                    "value": 124522736.6
+                },
+                {
+                    "name": "Bangladesh",
+                    "value": 4243398.0
+                },
+                {
+                    "name": "Benin",
+                    "value": 1387221.6
+                },
+                {
+                    "name": "Burkina Faso",
+                    "value": 12478276.7
+                },
+                {
+                    "name": "Cabo Verde",
+                    "value": 1211439.7
+                },
+                {
+                    "name": "Cambodia",
+                    "value": 2777802.2
+                },
+                {
+                    "name": "Cameroon",
+                    "value": 152703419.2
+                },
+                {
+                    "name": "Comoros",
+                    "value": 49000.0
+                },
+                {
+                    "name": "Congo, Dem. Rep.",
+                    "value": 39187.0
+                },
+                {
+                    "name": "Congo, Rep.",
+                    "value": 1313326.0
+                },
+                {
+                    "name": "Cote d'Ivoire",
+                    "value": 352509915.3
+                },
+                {
+                    "name": "Djibouti",
+                    "value": 558695.4
+                },
+                {
+                    "name": "Dominica",
+                    "value": 4106252.8
+                },
+                {
+                    "name": "Ethiopia",
+                    "value": 59345989.4
+                },
+                {
+                    "name": "Ghana",
+                    "value": 156885377.6
+                },
+                {
+                    "name": "Grenada",
+                    "value": 532337.1
+                },
+                {
+                    "name": "Guinea",
+                    "value": 24175051.5
+                },
+                {
+                    "name": "Kenya",
+                    "value": 77402677.5
+                },
+                {
+                    "name": "Kosovo",
+                    "value": 0.0
+                },
+                {
+                    "name": "Lesotho",
+                    "value": 780382.2
+                },
+                {
+                    "name": "Madagascar",
+                    "value": 596762.7
+                },
+                {
+                    "name": "Maldives",
+                    "value": 1812681.0
+                },
+                {
+                    "name": "Mali",
+                    "value": 2689351.3
+                },
+                {
+                    "name": "Mauritania",
+                    "value": 22775776.9
+                },
+                {
+                    "name": "Mongolia",
+                    "value": 743434.3
+                },
+                {
+                    "name": "Mozambique",
+                    "value": 30147514.0
+                },
+                {
+                    "name": "Myanmar",
+                    "value": 8250553.6
+                },
+                {
+                    "name": "Nepal",
+                    "value": 783741.0
+                },
+                {
+                    "name": "Niger",
+                    "value": 4542339.2
+                },
+                {
+                    "name": "Nigeria",
+                    "value": 21530619.3
+                },
+                {
+                    "name": "Pakistan",
+                    "value": 168510625.7
+                },
+                {
+                    "name": "Senegal",
+                    "value": 95871742.3
+                },
+                {
+                    "name": "Tajikistan",
+                    "value": 33588.9
+                },
+                {
+                    "name": "Tanzania",
+                    "value": 3263721.4
+                },
+                {
+                    "name": "Togo",
+                    "value": 16794.5
+                },
+                {
+                    "name": "Uganda",
+                    "value": 9186934.9
+                },
+                {
+                    "name": "Uzbekistan",
+                    "value": 10449507.1
+                },
+                {
+                    "name": "Zambia",
+                    "value": 6099744.4
+                }
+            ]
+        },
+        {
+            "name": "International Monetary Fund",
+            "children": [
+                {
+                    "name": "Afghanistan",
+                    "value": 11886621.3
+                },
+                {
+                    "name": "Angola",
+                    "value": 23588097.1
+                },
+                {
+                    "name": "Bangladesh",
+                    "value": 120692798.4
+                },
+                {
+                    "name": "Benin",
+                    "value": 21282067.7
+                },
+                {
+                    "name": "Burkina Faso",
+                    "value": 33443643.9
+                },
+                {
+                    "name": "Burundi",
+                    "value": 17262750.9
+                },
+                {
+                    "name": "Central African Republic",
+                    "value": 13306991.7
+                },
+                {
+                    "name": "Chad",
+                    "value": 736437.2
+                },
+                {
+                    "name": "Comoros",
+                    "value": 3907400.3
+                },
+                {
+                    "name": "Cote d'Ivoire",
+                    "value": 169677616.0
+                },
+                {
+                    "name": "Dominica",
+                    "value": 1580645.7
+                },
+                {
+                    "name": "Gambia, The",
+                    "value": 6731561.0
+                },
+                {
+                    "name": "Ghana",
+                    "value": 111924636.3
+                },
+                {
+                    "name": "Grenada",
+                    "value": 2922260.1
+                },
+                {
+                    "name": "Guinea",
+                    "value": 5486664.3
+                },
+                {
+                    "name": "Guinea-Bissau",
+                    "value": 2187204.6
+                },
+                {
+                    "name": "Haiti",
+                    "value": 11739755.6
+                },
+                {
+                    "name": "Honduras",
+                    "value": 1699470.4
+                },
+                {
+                    "name": "Kenya",
+                    "value": 157310168.9
+                },
+                {
+                    "name": "Kosovo",
+                    "value": 38235321.5
+                },
+                {
+                    "name": "Lesotho",
+                    "value": 14435826.9
+                },
+                {
+                    "name": "Liberia",
+                    "value": 16150495.9
+                },
+                {
+                    "name": "Madagascar",
+                    "value": 5827940.1
+                },
+                {
+                    "name": "Malawi",
+                    "value": 17334598.5
+                },
+                {
+                    "name": "Mali",
+                    "value": 20294164.2
+                },
+                {
+                    "name": "Mauritania",
+                    "value": 22202268.8
+                },
+                {
+                    "name": "Moldova",
+                    "value": 86554167.7
+                },
+                {
+                    "name": "Mongolia",
+                    "value": 5714642.1
+                },
+                {
+                    "name": "Mozambique",
+                    "value": 45965839.5
+                },
+                {
+                    "name": "Myanmar",
+                    "value": 3374070.6
+                },
+                {
+                    "name": "Nepal",
+                    "value": 8816521.1
+                },
+                {
+                    "name": "Nicaragua",
+                    "value": 14890400.8
+                },
+                {
+                    "name": "Niger",
+                    "value": 11578506.0
+                },
+                {
+                    "name": "Nigeria",
+                    "value": 22998118.3
+                },
+                {
+                    "name": "Pakistan",
+                    "value": 732043438.8
+                },
+                {
+                    "name": "Rwanda",
+                    "value": 1535050.1
+                },
+                {
+                    "name": "Samoa",
+                    "value": 3357490.4
+                },
+                {
+                    "name": "Sao Tome and Principe",
+                    "value": 558200.0
+                },
+                {
+                    "name": "Senegal",
+                    "value": 24480664.5
+                },
+                {
+                    "name": "Sierra Leone",
+                    "value": 18170516.9
+                },
+                {
+                    "name": "Solomon Islands",
+                    "value": 2174769.5
+                },
+                {
+                    "name": "Somalia",
+                    "value": 638337.7
+                },
+                {
+                    "name": "St. Vincent and the Grenadines",
+                    "value": 2629343.4
+                },
+                {
+                    "name": "Togo",
+                    "value": 16216816.7
+                },
+                {
+                    "name": "Uzbekistan",
+                    "value": 3607575.1
+                },
+                {
+                    "name": "Vanuatu",
+                    "value": 6245208.5
+                },
+                {
+                    "name": "Yemen, Rep.",
+                    "value": 29623289.6
+                }
+            ]
+        },
+        {
+            "name": "Japan",
+            "children": [
+                {
+                    "name": "Angola",
+                    "value": 108625066.9
+                },
+                {
+                    "name": "Bangladesh",
+                    "value": 123249693.3
+                },
+                {
+                    "name": "Bhutan",
+                    "value": 1000016.1
+                },
+                {
+                    "name": "Cabo Verde",
+                    "value": 1449564.8
+                },
+                {
+                    "name": "Cambodia",
+                    "value": 9734101.9
+                },
+                {
+                    "name": "Cameroon",
+                    "value": 1596356.1
+                },
+                {
+                    "name": "Cote d'Ivoire",
+                    "value": 5732505.7
+                },
+                {
+                    "name": "Ethiopia",
+                    "value": 37487000.0
+                },
+                {
+                    "name": "Fiji",
+                    "value": 116873442.8
+                },
+                {
+                    "name": "Honduras",
+                    "value": 0.0
+                },
+                {
+                    "name": "Kenya",
+                    "value": 86450934.4
+                },
+                {
+                    "name": "Lao PDR",
+                    "value": 6405526.2
+                },
+                {
+                    "name": "Madagascar",
+                    "value": 0.0
+                },
+                {
+                    "name": "Maldives",
+                    "value": 1266075.5
+                },
+                {
+                    "name": "Moldova",
+                    "value": 1247726.5
+                },
+                {
+                    "name": "Mongolia",
+                    "value": 34059650.6
+                },
+                {
+                    "name": "Myanmar",
+                    "value": 266059.5
+                },
+                {
+                    "name": "Nepal",
+                    "value": 12935988.2
+                },
+                {
+                    "name": "Nicaragua",
+                    "value": 36697.8
+                },
+                {
+                    "name": "Nigeria",
+                    "value": 0.0
+                },
+                {
+                    "name": "Pakistan",
+                    "value": 371024326.8
+                },
+                {
+                    "name": "Papua New Guinea",
+                    "value": 13642421.5
+                },
+                {
+                    "name": "Rwanda",
+                    "value": 0.0
+                },
+                {
+                    "name": "Samoa",
+                    "value": 1981683.3
+                },
+                {
+                    "name": "Senegal",
+                    "value": 34593924.5
+                },
+                {
+                    "name": "Tanzania",
+                    "value": 68923251.5
+                },
+                {
+                    "name": "Togo",
+                    "value": 0.0
+                },
+                {
+                    "name": "Uganda",
+                    "value": 26321525.0
+                },
+                {
+                    "name": "Uzbekistan",
+                    "value": 51514591.3
+                },
+                {
+                    "name": "Vanuatu",
+                    "value": 220187.0
+                },
+                {
+                    "name": "Zambia",
+                    "value": 1651402.8
+                }
+            ]
+        },
+        {
+            "name": "United Kingdom",
+            "children": [
+                {
+                    "name": "Angola",
+                    "value": 2185243719.5
+                },
+                {
+                    "name": "Benin",
+                    "value": 13658366.6
+                },
+                {
+                    "name": "Cameroon",
+                    "value": 1709675.0
+                },
+                {
+                    "name": "Chad",
+                    "value": 53778000.0
+                },
+                {
+                    "name": "Congo, Dem. Rep.",
+                    "value": 2533000.0
+                },
+                {
+                    "name": "Cote d'Ivoire",
+                    "value": 8602117.5
+                },
+                {
+                    "name": "Dominica",
+                    "value": 1425000.0
+                },
+                {
+                    "name": "Ethiopia",
+                    "value": 44678000.0
+                },
+                {
+                    "name": "Ghana",
+                    "value": 173800741.1
+                },
+                {
+                    "name": "Guyana",
+                    "value": 22985.6
+                },
+                {
+                    "name": "Maldives",
+                    "value": 531000.0
+                },
+                {
+                    "name": "Mozambique",
+                    "value": 220188923.0
+                },
+                {
+                    "name": "Myanmar",
+                    "value": 570142.7
+                },
+                {
+                    "name": "Pakistan",
+                    "value": 63133033.9
+                },
+                {
+                    "name": "Tanzania",
+                    "value": 358477000.0
+                },
+                {
+                    "name": "Uganda",
+                    "value": 11491082.2
+                },
+                {
+                    "name": "Zambia",
+                    "value": 227623000.0
+                }
+            ]
+        },
+        {
+            "name": "World Bank-IDA",
+            "children": [
+                {
+                    "name": "Afghanistan",
+                    "value": 10220000.0
+                },
+                {
+                    "name": "Angola",
+                    "value": 44569000.0
+                },
+                {
+                    "name": "Bangladesh",
+                    "value": 494296000.0
+                },
+                {
+                    "name": "Benin",
+                    "value": 16136000.0
+                },
+                {
+                    "name": "Bhutan",
+                    "value": 7342000.0
+                },
+                {
+                    "name": "Burkina Faso",
+                    "value": 29402000.0
+                },
+                {
+                    "name": "Burundi",
+                    "value": 4242000.0
+                },
+                {
+                    "name": "Cabo Verde",
+                    "value": 10335000.0
+                },
+                {
+                    "name": "Cambodia",
+                    "value": 21737000.0
+                },
+                {
+                    "name": "Cameroon",
+                    "value": 23192000.0
+                },
+                {
+                    "name": "Central African Republic",
+                    "value": 1111000.0
+                },
+                {
+                    "name": "Chad",
+                    "value": 4863000.0
+                },
+                {
+                    "name": "Comoros",
+                    "value": 411000.0
+                },
+                {
+                    "name": "Congo, Dem. Rep.",
+                    "value": 23939000.0
+                },
+                {
+                    "name": "Congo, Rep.",
+                    "value": 4850000.0
+                },
+                {
+                    "name": "Cote d'Ivoire",
+                    "value": 18013000.0
+                },
+                {
+                    "name": "Djibouti",
+                    "value": 6352000.0
+                },
+                {
+                    "name": "Dominica",
+                    "value": 1219000.0
+                },
+                {
+                    "name": "Ethiopia",
+                    "value": 113573000.0
+                },
+                {
+                    "name": "Gambia, The",
+                    "value": 2594000.0
+                },
+                {
+                    "name": "Ghana",
+                    "value": 87166000.0
+                },
+                {
+                    "name": "Grenada",
+                    "value": 2407000.0
+                },
+                {
+                    "name": "Guinea",
+                    "value": 6228000.0
+                },
+                {
+                    "name": "Guinea-Bissau",
+                    "value": 2205000.0
+                },
+                {
+                    "name": "Guyana",
+                    "value": 1468000.0
+                },
+                {
+                    "name": "Honduras",
+                    "value": 54934000.0
+                },
+                {
+                    "name": "Kenya",
+                    "value": 182886000.0
+                },
+                {
+                    "name": "Kosovo",
+                    "value": 1505000.0
+                },
+                {
+                    "name": "Lao PDR",
+                    "value": 29521000.0
+                },
+                {
+                    "name": "Lesotho",
+                    "value": 13921000.0
+                },
+                {
+                    "name": "Liberia",
+                    "value": 2215000.0
+                },
+                {
+                    "name": "Madagascar",
+                    "value": 36895000.0
+                },
+                {
+                    "name": "Malawi",
+                    "value": 13041000.0
+                },
+                {
+                    "name": "Maldives",
+                    "value": 3463000.0
+                },
+                {
+                    "name": "Mali",
+                    "value": 31013000.0
+                },
+                {
+                    "name": "Mauritania",
+                    "value": 9810000.0
+                },
+                {
+                    "name": "Moldova",
+                    "value": 22063000.0
+                },
+                {
+                    "name": "Mongolia",
+                    "value": 19125000.0
+                },
+                {
+                    "name": "Mozambique",
+                    "value": 50575000.0
+                },
+                {
+                    "name": "Myanmar",
+                    "value": 34012000.0
+                },
+                {
+                    "name": "Nepal",
+                    "value": 73902000.0
+                },
+                {
+                    "name": "Nicaragua",
+                    "value": 16095000.0
+                },
+                {
+                    "name": "Niger",
+                    "value": 14275000.0
+                },
+                {
+                    "name": "Nigeria",
+                    "value": 230615000.0
+                },
+                {
+                    "name": "Pakistan",
+                    "value": 592378000.0
+                },
+                {
+                    "name": "Papua New Guinea",
+                    "value": 15662000.0
+                },
+                {
+                    "name": "Rwanda",
+                    "value": 17301000.0
+                },
+                {
+                    "name": "Samoa",
+                    "value": 3425000.0
+                },
+                {
+                    "name": "Sao Tome and Principe",
+                    "value": 338000.0
+                },
+                {
+                    "name": "Senegal",
+                    "value": 40470000.0
+                },
+                {
+                    "name": "Sierra Leone",
+                    "value": 4481000.0
+                },
+                {
+                    "name": "Solomon Islands",
+                    "value": 1787000.0
+                },
+                {
+                    "name": "St. Lucia",
+                    "value": 2422000.0
+                },
+                {
+                    "name": "St. Vincent and the Grenadines",
+                    "value": 1035000.0
+                },
+                {
+                    "name": "Tajikistan",
+                    "value": 13246000.0
+                },
+                {
+                    "name": "Tanzania",
+                    "value": 121041000.0
+                },
+                {
+                    "name": "Timor-Leste",
+                    "value": 1563000.0
+                },
+                {
+                    "name": "Togo",
+                    "value": 551000.0
+                },
+                {
+                    "name": "Tonga",
+                    "value": 808000.0
+                },
+                {
+                    "name": "Uganda",
+                    "value": 58350000.0
+                },
+                {
+                    "name": "Uzbekistan",
+                    "value": 39709000.0
+                },
+                {
+                    "name": "Vanuatu",
+                    "value": 1032000.0
+                },
+                {
+                    "name": "Yemen, Rep.",
+                    "value": 83913000.0
+                },
+                {
+                    "name": "Zambia",
+                    "value": 18857000.0
+                }
+            ]
+        }
+    ]
+}]

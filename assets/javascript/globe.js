@@ -13,6 +13,7 @@ function globe(globeID) {
     const formatMonth = d3.timeFormat("%b");
 
     function drawLine(data) {
+      console.log('Going to draw Covid Line')
       console.log(data);
       // Create SVG and padding for the chart
       const svg = d3
@@ -39,6 +40,7 @@ function globe(globeID) {
       // Add empty path
       const path = grp
         .append("path")
+        .attr("class", "country-line-path")
         .attr("transform", `translate(${margin.left + 50},0)`)
         .attr("fill", "none")
         .attr("stroke", "red")
@@ -92,7 +94,7 @@ function globe(globeID) {
 
       function updatePath(data, line) {
         const updatedPath = d3
-          .select("path")
+          .select(".country-line-path")
           .interrupt()
           .datum(data)
           .attr("d", line);
