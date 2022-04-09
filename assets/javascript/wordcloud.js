@@ -662,86 +662,97 @@
 //Simple animated example of d3-cloud - https://github.com/jasondavies/d3-cloud
 //Based on https://github.com/jasondavies/d3-cloud/blob/master/examples/simple.html
 
-d3.csv(getURL("tweets/covid_tweets.csv"), function (data) {
-  data = data.map(d => d.tweet);
-  drawWordCloud(data.join(" "));
+function updateWordCloud(term) {
+  d3.select("#wordcloud").selectAll("*").remove();
+  d3.csv(getURL(`tweets/${term}_tweets.csv`), function (data) {
+    data = data.map((d) => d.tweet);
+    drawWordCloud(data.join(" "));
 
-  function drawWordCloud(text_string) {
-    var common = "a,an,the,and,but,if,or,as";
-    var total = 0;
-    var word_count = {};
-    var words = text_string.split(/[ '\-\(\)\*":;\[\]|{},.!?]+/);
-    console.log(words)
-    if (words.length == 1) {
-      word_count[words[0]] = 1;
-    } else {
-      words.forEach(function (word) {
-        var word = word.toLowerCase();
-        if (word != "" && common.indexOf(word) == -1 && word.length > 1) {
-          if (word_count[word]) {
-            word_count[word]++;
-            total++;
-          } else {
-            word_count[word] = 1;
+    function drawWordCloud(text_string) {
+      var common = "a,an,the,and,but,if,or,as";
+      var total = 0;
+      var word_count = {};
+      var words = text_string.split(/[ '\-\(\)\*":;\[\]|{},.!?]+/);
+      console.log(words);
+      if (words.length == 1) {
+        word_count[words[0]] = 1;
+      } else {
+        words.forEach(function (word) {
+          var word = word.toLowerCase();
+          if (word != "" && common.indexOf(word) == -1 && word.length > 1) {
+            if (word_count[word]) {
+              word_count[word]++;
+              total++;
+            } else {
+              word_count[word] = 1;
+            }
           }
-        }
-      });
-    }
-    var word_entries = Object.entries(word_count);
-
-    var fill = d3.scaleOrdinal(d3.schemeCategory10);
-
-    d3.layout
-      .cloud()
-      .size([window.innerWidth - 400, 900])
-      .words(
-        word_entries.map(function (d) {
-          return { text: d[0], size: 10 + (d[1] / total) * 750 };
-        })
-      )
-      .padding(1)
-      .rotate(function () {
-        if (Math.random() > 0.5) {
-          return 90;
-        } else {
-          return ~~(Math.random() * 0) * 90;
-        }
-      })
-      .font("Montserrat")
-      .fontSize(function (d) {
-        return d.size;
-      })
-      .on("end", draw)
-      .start();
-
-    function draw(words) {
-      d3.select("#wordcloud")
-        .append("svg")
-        .attr("width", window.innerWidth)
-        .attr("height", window.innerHeight - 100)
-        .append("g")
-        .attr("transform", "translate(620,300)")
-        .selectAll("text")
-        .data(words)
-        .enter()
-        .append("text")
-        .style("font-size", function (d) {
-          return d.size + "px";
-        })
-        .style("font-family", "Impact")
-        .style("fill", function (d, i) {
-          return fill(i);
-        })
-        .attr("text-anchor", "middle")
-        .attr("transform", function (d) {
-          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-        })
-        .text(function (d) {
-          return d.text;
         });
+      }
+      var word_entries = Object.entries(word_count);
+
+      var fill = d3.scaleOrdinal(d3.schemeCategory10);
+
+      d3.layout
+        .cloud()
+        .size([window.innerWidth - 400, 900])
+        .words(
+          word_entries.map(function (d) {
+            return { text: d[0], size: 10 + (d[1] / total) * 750 };
+          })
+        )
+        .padding(0.5)
+        .rotate(function () {
+          if (Math.random() > 0.5) {
+            return 90;
+          } else {
+            return ~~(Math.random() * 0) * 90;
+          }
+        })
+        .font("Montserrat")
+        .fontSize(function (d) {
+          return d.size;
+        })
+        .on("end", draw)
+        .start();
+
+      function draw(words) {
+        d3.select("#wordcloud")
+          .append("svg")
+          .attr("width", window.innerWidth)
+          .attr("height", window.innerHeight - 100)
+          .append("g")
+          .attr("transform", "translate(620,300)")
+          .selectAll("text")
+          .data(words)
+          .enter()
+          .append("text")
+          .style("font-size", function (d) {
+            return d.size + "px";
+          })
+          .style("font-family", "Impact")
+          .style("fill", function (d, i) {
+            return fill(i);
+          })
+          .attr("text-anchor", "middle")
+          .attr("transform", function (d) {
+            return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+          })
+          .text(function (d) {
+            return d.text;
+          });
+      }
     }
-  }
-});
+  });
+}
+
+updateWordCloud("covid");
+
+document.querySelectorAll(".wordcloud-option").forEach((radio) => {
+  radio.onclick = (e) => {
+      updateWordCloud(e.target.value);
+  };
+})
 
 // d3.csv("../../data/tweets/covid_tweets.csv", function (data) {
 //   console.log(data);

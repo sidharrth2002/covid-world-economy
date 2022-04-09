@@ -157,7 +157,7 @@
       <div class="section white-text" id="section6">
         <div class="import-export-caption">
         <h2 class="white uk-text-left">Imports and Exports Over Time</h2>
-        <p class="uk-text-left">Hypothetically, Covid-19 begins to affect the purchasing power of nations. However, it doesn't always end badly as the biggest industrial powers in the world continue churning out product.</p>
+        <p class="uk-text-left">Hypothetically, Covid-19 begins to affect the purchasing power of nations. However, it doesn't always end badly as the biggest industrial powers in the world continue churning out product. Outer bars represent <span class="uk-text-success">exports</span> and inner bars are <span class="uk-text-danger">imports</span>.</p>
         <div class="slider-container">
           <input class="uk-range import-export-range" value="0" type="range" />
           <div class="slider-labels">
@@ -183,8 +183,17 @@
           <div id="remittance-line"></div>
         </div>
       </div>
-      <div class="section" id="section8">
+      <div class="section wordcloud-inner" id="section8">
         <h2 class="white">What is the public sentiment like?</h2>
+          <div>
+            <div class="uk-form-label">Radio</div>
+            <div class="uk-form-controls">
+                <label><input class="uk-radio wordcloud-option" type="radio" name="wordcloud-radio" value="covid">Covid-19</label><br>
+                <label><input class="uk-radio wordcloud-option" type="radio" name="wordcloud-radio" value="omicron">Omicron</label><br>
+                <label><input class="uk-radio wordcloud-option" type="radio" name="wordcloud-radio" value="world_economy">World Economy</label>
+                <label><input class="uk-radio wordcloud-option" type="radio" name="wordcloud-radio" value="remittance">Remittance</label>
+            </div>
+          </div>
         <div id="wordcloud"></div>
       </div>
     </div>
