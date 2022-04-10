@@ -15,7 +15,6 @@ function globe(globeID) {
     function drawLine(data) {
       console.log('Going to draw Covid Line')
       console.log(data);
-      // Create SVG and padding for the chart
       const svg = d3
         .select("#country-line")
         .append("svg")
@@ -49,7 +48,6 @@ function globe(globeID) {
         .attr("stroke-width", 1.5);
 
       function updateScales(data) {
-        // Create scales
         const yScale = d3
           .scaleLinear()
           .range([height, 0])
@@ -118,14 +116,6 @@ function globe(globeID) {
       }
 
       updateChart(data);
-      // Update chart when button is clicked
-      // d3.select("button").on("click", () => {
-      //   // Create new fake data
-      //   const newData = data.map((row) => {
-      //     return { ...row, popularity: row.popularity * Math.random() };
-      //   });
-      //   updateChart(newData);
-      // });
     }
 
     function drawGDPLine(country) {
@@ -248,16 +238,13 @@ function globe(globeID) {
         var colorGraticule = "#ccc";
         var colorCountry = "#a00";
 
-        //
-        // Handler
-        //
-
         function enter(country) {
           var country = countryList.find(function (c) {
             return parseInt(c.id, 10) === parseInt(country.id, 10);
           });
           if (country) {
             countryData = rows.filter((r) => r.location === country.name);
+            // remove all charts and labels before updating
             d3.select("#country-line").selectAll("svg").remove();
             d3.select("#country-gdp-line").selectAll("svg").remove();
             d3.select("#country-line-title").text(`Daily Covid-19 cases in ${country.name}`);
@@ -276,10 +263,6 @@ function globe(globeID) {
           d3.select("#country-gdp-line-title").text("");
         }
 
-        //
-        // Variables
-        //
-
         var current = d3.select("#current");
         var canvas = d3.select(globeID);
         var context = canvas.node().getContext("2d");
@@ -287,9 +270,9 @@ function globe(globeID) {
         var projection = d3.geoOrthographic().precision(0.1);
         var graticule = d3.geoGraticule10();
         var path = d3.geoPath(projection).context(context);
-        var v0; // Mouse position in Cartesian coordinates at start of drag gesture.
-        var r0; // Projection rotation as Euler angles at start.
-        var q0; // Projection rotation as versor at start.
+        var v0;
+        var r0;
+        var q0;
         var lastTime = d3.now();
         var degPerMs = degPerSec / 1000;
         var globeWidth, globeHeight;
@@ -297,10 +280,6 @@ function globe(globeID) {
         var countryList;
         var autorotate, now, diff, roation;
         var currentCountry;
-
-        //
-        // Functions
-        //
 
         function setAngles() {
           var rotation = projection.rotate();
@@ -311,6 +290,7 @@ function globe(globeID) {
         }
 
         function scale() {
+          // make responsive
           globeWidth = document.documentElement.clientWidth / 2 + 100;
           globeHeight = document.documentElement.clientHeight / 2 + 100;
           // globeWidth = 3000;
@@ -404,7 +384,6 @@ function globe(globeID) {
           );
         }
 
-        // https://github.com/d3/d3-polygon
         function polygonContains(polygon, point) {
           var n = polygon.length;
           var p = polygon[n - 1];
@@ -458,10 +437,6 @@ function globe(globeID) {
             });
           });
         }
-
-        //
-        // Initialization
-        //
 
         setAngles();
 
