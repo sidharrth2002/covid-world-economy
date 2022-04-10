@@ -698,7 +698,7 @@ function updateWordCloud(term) {
         .size([window.innerWidth - 400, 900])
         .words(
           word_entries.map(function (d) {
-            return { text: d[0], size: 10 + (d[1] / total) * 750 };
+            return { text: d[0], size: 40 + (d[1] / total) * 750 };
           })
         )
         .padding(0.5)
@@ -720,9 +720,9 @@ function updateWordCloud(term) {
         d3.select("#wordcloud")
           .append("svg")
           .attr("width", window.innerWidth)
-          .attr("height", window.innerHeight - 100)
+          .attr("height", window.innerHeight)
           .append("g")
-          .attr("transform", "translate(620,300)")
+          .attr("transform", "translate(200,300)")
           .selectAll("text")
           .data(words)
           .enter()
