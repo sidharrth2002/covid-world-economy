@@ -750,6 +750,7 @@ function updateWordCloud(term) {
 
 updateWordCloud("covid");
 
+// update based on radio selection
 document.querySelectorAll(".wordcloud-option").forEach((radio) => {
   radio.onclick = (e) => {
       updateWordCloud(e.target.value);
