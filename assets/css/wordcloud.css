@@ -4,5 +4,7 @@
 }
 
 .wordcloud-inner {
-    padding: 3rem;
+    /* padding: 2rem; */
+    padding-right: 3rem;
+    padding-left: 4rem;
 }

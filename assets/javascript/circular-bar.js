@@ -37,7 +37,6 @@ function circularBar() {
       return scale;
     }
     d3.scaleRadial = radial;
-    // set the dimensions and margins of the graph
 
     function update(year) {
       d3.csv(
@@ -59,9 +58,8 @@ function circularBar() {
             width = 1000 - margin.left - margin.right,
             height = 900 - margin.top - margin.bottom,
             innerRadius = 150,
-            outerRadius = Math.min(width, height) / 2; // the outerRadius goes from the middle of the SVG area to the border
+            outerRadius = Math.min(width, height) / 2;
 
-          // append the svg object
           var svg = d3
             .select("#imports-exports")
             .append("svg")
@@ -77,33 +75,26 @@ function circularBar() {
                 ")"
             );
 
-          //   d3.csv(
-          //     "https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/7_OneCatOneNum.csv",
-          //     function (data) {
-          // X scale: common for 2 data series
           var x = d3
             .scaleBand()
-            .range([0, 2 * Math.PI]) // X axis goes from 0 to 2pi = all around the circle. If I stop at 1Pi, it will be around a half circle
-            .align(0) // This does nothing
+            .range([0, 2 * Math.PI])
+            .align(0)
             .domain(
               data.map(function (d) {
                 return d.country;
               })
-            ); // The domain of the X axis is the list of states.
+            );
 
-          // Y scale outer variable
           var y = d3
             .scaleRadial()
-            .range([innerRadius, outerRadius]) // Domain will be define later.
-            .domain([0, d3.max(data.map((d) => d.value))]); // Domain of Y is from 0 to the max seen in the data
-
-          // Second barplot Scales
-          var ybis = d3
-            .scaleRadial()
-            .range([innerRadius, 5]) // Domain will be defined later.
+            .range([innerRadius, outerRadius])
             .domain([0, d3.max(data.map((d) => d.value))]);
 
-          // Add the bars
+          var ybis = d3
+            .scaleRadial()
+            .range([innerRadius, 5])
+            .domain([0, d3.max(data.map((d) => d.value))]);
+
           svg
             .append("g")
             .selectAll("path")
@@ -115,7 +106,7 @@ function circularBar() {
             .attr(
               "d",
               d3
-                .arc() // imagine your doing a part of a donut plot
+                .arc()
                 .innerRadius(innerRadius)
                 .outerRadius(function (d) {
                   return y(d["value"]);
@@ -130,7 +121,6 @@ function circularBar() {
                 .padRadius(innerRadius)
             );
 
-          // Add the labels
           svg
             .append("g")
             .selectAll("g")
@@ -170,7 +160,6 @@ function circularBar() {
             .style("color", "white")
             .attr("alignment-baseline", "middle");
 
-          // Add the second series
           svg
             .append("g")
             .selectAll("path")
@@ -181,7 +170,7 @@ function circularBar() {
             .attr(
               "d",
               d3
-                .arc() // imagine your doing a part of a donut plot
+                .arc()
                 .innerRadius(function (d) {
                   return ybis(0);
                 })
@@ -201,6 +190,7 @@ function circularBar() {
       );
     }
 
+    // update chart when the slider changes based on value ranges
     const onChange = function (evt) {
       d3.select("#imports-exports").select("svg").remove();
       let val = evt.target.value;

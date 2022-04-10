@@ -1,3 +1,4 @@
+// importing word cloud from jason davies here because of dependency conflicts
 (function (f) {
   if (typeof exports === "object" && typeof module !== "undefined") {
     module.exports = f();
@@ -719,10 +720,10 @@ function updateWordCloud(term) {
       function draw(words) {
         d3.select("#wordcloud")
           .append("svg")
-          .attr("width", 1800)
-          .attr("height", 700)
+          .attr("width", 1500)
+          .attr("height", 600)
           .append("g")
-          .attr("transform", "translate(400,300)")
+          .attr("transform", "translate(600,300)")
           .selectAll("text")
           .data(words)
           .enter()

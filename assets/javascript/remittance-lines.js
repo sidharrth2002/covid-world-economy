@@ -1,3 +1,4 @@
+// using small multiples to show the remittance data across different regions
 function remittance() {
   require.config({
     paths: {

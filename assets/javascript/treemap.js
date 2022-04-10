@@ -6,10 +6,7 @@ function treemap() {
   });
 
   require(["d3v5"], function (d3) {
-    // Sidharrth Nagappan
-    // 2022
-
-    let width = (height = 100), // % of the parent element
+    let width = (height = 100),
       x = d3.scaleLinear().domain([0, width]).range([0, width]),
       y = d3.scaleLinear().domain([0, height]).range([0, height]),
       color = d3.scaleOrdinal().range(
@@ -327,8 +324,6 @@ function treemap() {
             .style("height", function (d) {
               return y(d.y1) - y(d.y0) + "%";
             })
-            //.style("background-image", function(d) { return d.value ? imgUrl + d.value : ""; })
-            //.style("background-image", function(d) { return d.value ? "url(http://placekitten.com/g/300/300)" : "none"; })
             .style("background-color", function (d) {
               while (d.depth > 2) d = d.parent;
               return color(d.data.name);
@@ -364,8 +359,6 @@ function treemap() {
           let parent = d3.select(".up").datum(nodes).on("click", zoom);
 
           function zoom(d) {
-            // http://jsfiddle.net/ramnathv/amszcymq/
-
             console.log("clicked: " + d.data.name + ", depth: " + d.depth);
 
             if (d.depth === 2 && d3.select(".inner").empty()) {
