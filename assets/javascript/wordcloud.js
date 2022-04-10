@@ -695,13 +695,13 @@ function updateWordCloud(term) {
 
       d3.layout
         .cloud()
-        .size([window.innerWidth - 400, 900])
+        .size([1700, 600])
         .words(
           word_entries.map(function (d) {
             return { text: d[0], size: 40 + (d[1] / total) * 750 };
           })
         )
-        .padding(0.5)
+        .padding(2)
         .rotate(function () {
           if (Math.random() > 0.5) {
             return 90;
@@ -719,10 +719,10 @@ function updateWordCloud(term) {
       function draw(words) {
         d3.select("#wordcloud")
           .append("svg")
-          .attr("width", window.innerWidth)
-          .attr("height", window.innerHeight)
+          .attr("width", 1800)
+          .attr("height", 700)
           .append("g")
-          .attr("transform", "translate(200,300)")
+          .attr("transform", "translate(400,300)")
           .selectAll("text")
           .data(words)
           .enter()
@@ -730,7 +730,7 @@ function updateWordCloud(term) {
           .style("font-size", function (d) {
             return d.size + "px";
           })
-          .style("font-family", "Impact")
+          .style("font-family", "EB Garamond")
           .style("fill", function (d, i) {
             return fill(i);
           })

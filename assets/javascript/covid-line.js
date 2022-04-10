@@ -67,18 +67,6 @@ function covidLine(lineID) {
       .style("text-anchor", "middle")
       .text("New Cases");
 
-    svg
-      .append("a")
-      .attr("xlink:href", (d) => {
-        return "https://www.moex.com/ru/index/rtsusdcur.aspx?tid=2552";
-      })
-      .attr("class", "subtitle")
-      .attr("target", "_blank")
-      .append("text")
-      .attr("x", 0)
-      .attr("y", height + 50)
-      .text("");
-
     // add event listener for clicks
     appendData(2020);
     document.querySelectorAll(".radio").forEach((radio) => {
