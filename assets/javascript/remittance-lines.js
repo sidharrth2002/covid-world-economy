@@ -42,7 +42,6 @@ function remittance() {
 
         console.log(allKeys);
 
-        // Add an svg element for each group. The will be one beside each other and will go on the next row when no more room available
         let svg = d3
           .select("#remittance-line")
           .selectAll("uniqueChart")
@@ -150,6 +149,7 @@ function remittance() {
             })
             .attr("r", function(d, i) {
               console.log(d)
+              // blow up 2020 circles
               if (d.Year.includes("2020")) {
                 return 10;
               } else {

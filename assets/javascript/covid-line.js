@@ -84,7 +84,7 @@ function covidLine(lineID) {
       d3.selectAll("path.line").remove();
       d3.selectAll(".title").remove();
 
-      filename = "../../data/covid/covid_world.csv";
+      filename = getURL("covid/covid_world.csv");
       d3.csv(filename, (data) => {
         data = data.reverse();
         data.forEach((d) => {
