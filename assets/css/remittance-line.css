@@ -1,5 +1,17 @@
+.remittance-outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .remittance-div {
     width: 800px;
     max-width: 90%;
     margin: 0 auto;
+    padding-top: 2rem;
+}
+
+.tooltip {
+    padding: 1rem;
 }

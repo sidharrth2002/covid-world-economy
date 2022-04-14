@@ -135,7 +135,12 @@ function remittance() {
         function yy(e) {
           return y(e.value);
         }
-
+        const tooltip = d3.select("#remittance-line").append("div")
+        .attr('id', 'tooltip')
+        .style('position', 'absolute')
+        .style("background-color", "black")
+        .style('padding', 10)
+        .style('display', 'none')
         // remove circles not on line
         for (let i = 0; i <= 5; i++) {
           console.log(".line-chart-svg-" + i);
@@ -165,11 +170,28 @@ function remittance() {
             .on("mouseover", function (d) {
               // increase radius
               d3.select(this).attr("r", 10);
+              // add tooltip
+              d3.select("#tooltip")
+                .style("left", d3.event.pageX + "px")
+                .style("top", (d3.event.pageY + margin.top) + "px")
+                .style("display", "inline-block")
+                .html(
+                  "<div class='tooltip'><div class='tooltip-title'>" +
+                    d.Region +
+                    "</div><div class='tooltip-content'>" +
+                    d.Year +
+                    "</div><div class='tooltip-content'>" +
+                    d.value +
+                    "</div></div>"
+                );
+              console.log('added tooltip')
             })
             .on("mouseout", function (d) {
               console.log(d);
               // reset radius
               d3.select(this).attr("r", 5);
+              // hide tooltip
+              d3.select("#tooltip").style("display", "none");
             });
         }
 
