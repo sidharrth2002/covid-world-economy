@@ -38,6 +38,13 @@ function circularBar() {
     }
     d3.scaleRadial = radial;
 
+    const tooltip = d3.select("#imports-exports").append("div")
+    .attr('id', 'ie-tooltip')
+    .style('position', 'absolute')
+    .style("background-color", "black")
+    .style('padding', 10)
+    .style('display', 'none')
+
     function update(year) {
       d3.csv(
         getURL(`import_export/import_export.csv`),
@@ -158,7 +165,19 @@ function circularBar() {
             })
             .style("font-size", "11px")
             .style("color", "white")
-            .attr("alignment-baseline", "middle");
+            .attr("alignment-baseline", "middle")
+            .on("mouseover", function (d) {
+              // show tooltip
+              d3.select("#ie-tooltip").style("display", "block")
+              .style("left", d3.event.pageX + "px")
+              .style("top", d3.event.pageY + "px")
+              .style("opacity", 1)
+              .html(`<p>${d.country}-$ ${d.value}</p>`)
+            })
+            .on("mouseout", function (d) {
+              // hide tooltip
+              d3.select("#ie-tooltip").style("display", "none");
+            });
 
           svg
             .append("g")
